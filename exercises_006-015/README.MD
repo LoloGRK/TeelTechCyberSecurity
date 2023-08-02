@@ -1,7 +1,7 @@
 - Exercise 6
 
   Find text files related to "password" from a specific website (say, edu domain).
-<details>
+  <details>
   <summary>Solution</summary>
   ```
   site:.edu filetype:txt "password"
@@ -9,7 +9,7 @@
   
   *Explanation:* This command restricts the search to “edu” sites, limits the search to txt files, and looks for those containing the term "password".
 
-</details>
+  </details>
 
 - Exercise 7
 
