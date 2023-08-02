@@ -3,6 +3,7 @@
   Find text files related to "password" from a specific website (say, edu domain).
   <details>
   <summary>Solution</summary>
+
   ```
   site:.edu filetype:txt "password"
   ```
@@ -17,6 +18,7 @@
 
   <details>
     <summary>Solution</summary>
+
   ```
   site:.edu inurl:login
   ```
@@ -31,6 +33,7 @@
 
   <details>
     <summary>Solution</summary>
+
   ```
   site:gov filetype:xls "budget"
   ```
@@ -45,6 +48,7 @@
 
   <details>
     <summary>Solution</summary>
+
   ```
   allintitle:restricted filetype:doc site:gov
   ```
@@ -59,6 +63,7 @@
 
   <details>
     <summary>Solution</summary>
+
   ```
   site:edu intitle:"index of”
   ```
@@ -73,6 +78,7 @@
 
   <details>
     <summary>Solution</summary>
+
   ```
   allintext:username filetype:log
   ```
@@ -87,6 +93,7 @@
 
   <details>
     <summary>Solution</summary>
+
   ```
   inurl:/proc/self/cwd
   ```
@@ -101,6 +108,7 @@
 
   <details>
     <summary>Solution</summary>
+
   ```
   filetype:env "password"
   ```
@@ -115,12 +123,15 @@
 
   <details>
     <summary>Solution</summary>
+
   ```
   inurl:top.htm inurl:currenttime
   ```
+
   ```
   intitle:"webcamXP 5"
   ```
+
   ```
   inurl:"lvappl.htm"
   ```
@@ -135,6 +146,7 @@
 
   <details>
     <summary>Solution</summary>
+
   ```
   filetype:xls inurl:"email.xls"
   ```
