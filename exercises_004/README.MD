@@ -25,7 +25,7 @@
   Name Server: NS2.BRSINFORMATICA.COM
   DNSSEC: unsigned
   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
-  >>> Last update of whois database: 2023-08-02T08:04:23Z <<<
+  >>> Last update of whois database: 2023-08-02T08:04:23Z
 
   For more information on Whois status codes, please visit https://icann.org/epp
 
