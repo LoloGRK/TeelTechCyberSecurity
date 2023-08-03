@@ -1,4 +1,4 @@
-- Exercise 19
+- Exercise 18
   
   - ProxyChain installation
   
@@ -10,8 +10,9 @@
 
     Open /etc/proxychains.conf with nano and set the following configuration:
     
-    - Uncomment *dynamic_chain* to chain proxies
-    - Comment *strict_chain* to randomize the connection
+    - Uncomment *dynamic_chain* and comment *static_chain* to make the proxy chain dynamic
+    - Uncomment *random_chain* to randomize the list
+    - Set *chain_len* to a value of at least 2, to use a minium of 2 proxies in the chain
     
     At the end of the file we will find this section
     
