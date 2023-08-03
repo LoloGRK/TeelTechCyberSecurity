@@ -6,13 +6,17 @@
     
     - Enable TOR
 
-      <img src="https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_020/images/Tor_001.png" width="450">
+      Open a *New private window with Tor*
+      
+      <img src="https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_020/images/Tor_001.png" width="250">
+      
+      Brave will be automatically connect to TOR network
       
       <img src="https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_020/images/Tor_002.png" width="450">
   
     - Testing
 
-      <img src="https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_020/images/Tor_003.png" width="850">
+      <img src="https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_020/images/Tor_003.png" width="600">
       
   - Raw TOR network access
   
@@ -36,7 +40,20 @@
       ago 03 06:27:31 juans systemd[1]: Starting Anonymizing overlay network for TCP (multi-instance-master)...
       ago 03 06:27:31 juans systemd[1]: Finished Anonymizing overlay network for TCP (multi-instance-master).
       ```
+    
+    - Configure proxyChains
+    
+      Add your TOR to route your traffic to *ProxyList* section
       
+      ```
+      [ProxyList]
+      # add proxy here ...
+      # meanwile
+      # defaults set to "tor"
+      socks4  127.0.0.1 9050
+      #http 192.168.0.1  3128
+      ```
+    
     - Testing
     
       Open Firefox and check your IP
