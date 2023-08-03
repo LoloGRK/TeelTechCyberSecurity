@@ -1,156 +1,156 @@
-- Exercise 6
+# Exercise 6
 
-  Find text files related to "password" from a specific website (say, edu domain).
-  <details>
+Find text files related to "password" from a specific website (say, edu domain).
+<details>
+<summary>Solution</summary>
+
+```
+site:.edu filetype:txt "password"
+```
+
+*Explanation:* This command restricts the search to “edu” sites, limits the search to txt files, and looks for those containing the term "password".
+
+</details>
+
+# Exercise 7
+
+Find login pages within the ".edu" domain.
+
+<details>
   <summary>Solution</summary>
 
-  ```
-  site:.edu filetype:txt "password"
-  ```
-  
-  *Explanation:* This command restricts the search to “edu” sites, limits the search to txt files, and looks for those containing the term "password".
+```
+site:.edu inurl:login
+```
 
-  </details>
+*Explanation:* This command restricts the search to ".edu" domain and returns pages that have "login" in their URL.
 
-- Exercise 7
+</details>
 
-  Find login pages within the ".edu" domain.
+# Exercise 8
 
-  <details>
-    <summary>Solution</summary>
+Search for Excel files on government websites that contain the word "budget".
 
-  ```
-  site:.edu inurl:login
-  ```
-  
-  *Explanation:* This command restricts the search to ".edu" domain and returns pages that have "login" in their URL.
+<details>
+  <summary>Solution</summary>
 
-  </details>
-  
-- Exercise 8
+```
+site:gov filetype:xls "budget"
+```
 
-  Search for Excel files on government websites that contain the word "budget".
+*Explanation:* This command will find all Excel (.xls) files on .gov domains that contain the word "budget".
 
-  <details>
-    <summary>Solution</summary>
+</details>
 
-  ```
-  site:gov filetype:xls "budget"
-  ```
-  
-  *Explanation:* This command will find all Excel (.xls) files on .gov domains that contain the word "budget".
+# Exercise 9
 
-  </details>
+Search for Word documents in government sites containing the word "restricted".
 
-- Exercise 9
+<details>
+  <summary>Solution</summary>
 
-  Search for Word documents in government sites containing the word "restricted".
+```
+allintitle:restricted filetype:doc site:gov
+```
 
-  <details>
-    <summary>Solution</summary>
+*Explanation:* This command restricts the search to ".gov" and return documents that contain the word "restricted".
 
-  ```
-  allintitle:restricted filetype:doc site:gov
-  ```
-  
-  *Explanation:* This command restricts the search to ".gov" and return documents that contain the word "restricted".
+</details>
 
-  </details>
+# Exercise 10
 
-- Exercise 10
+Find directories titled "index of" on educational sites.
 
-  Find directories titled "index of" on educational sites.
+<details>
+  <summary>Solution</summary>
 
-  <details>
-    <summary>Solution</summary>
+```
+site:edu intitle:"index of”
+```
 
-  ```
-  site:edu intitle:"index of”
-  ```
-  
-  *Explanation:* This command will find pages on .edu domains where the title includes the words "index of", often revealing directory listings.
+*Explanation:* This command will find pages on .edu domains where the title includes the words "index of", often revealing directory listings.
 
-  </details>
+</details>
 
-- Exercise 11
+# Exercise 11
 
-  Search for LogFiles files that contain the word "username".
+Search for LogFiles files that contain the word "username".
 
-  <details>
-    <summary>Solution</summary>
+<details>
+  <summary>Solution</summary>
 
-  ```
-  allintext:username filetype:log
-  ```
-  
-  *Explanation:* This command will return the logFiles that contains the word “username”
+```
+allintext:username filetype:log
+```
 
-  </details>
-  
-- Exercise 12
+*Explanation:* This command will return the logFiles that contains the word “username”
 
-  Find vulnerable misconfigured web servers
+</details>
 
-  <details>
-    <summary>Solution</summary>
+# Exercise 12
 
-  ```
-  inurl:/proc/self/cwd
-  ```
-  
-  *Explanation:* This command looks for URLs that have /proc/self/cwd in them. This can sometimes be an indication of a misconfigured server that is inadvertently exposing sensitive information
+Find vulnerable misconfigured web servers
 
-  </details>
-  
-- Exercise 13
+<details>
+  <summary>Solution</summary>
 
-  Search for environment files that contain the word "username".
+```
+inurl:/proc/self/cwd
+```
 
-  <details>
-    <summary>Solution</summary>
+*Explanation:* This command looks for URLs that have /proc/self/cwd in them. This can sometimes be an indication of a misconfigured server that is inadvertently exposing sensitive information
 
-  ```
-  filetype:env "password"
-  ```
-  
-  *Explanation:* This command will return the environment files that contains the word “password”. These files are used to store credentials.
+</details>
 
-  </details>
-  
-- Exercise 14
+# Exercise 13
 
-  Find exposed web cameras
+Search for environment files that contain the word "username".
 
-  <details>
-    <summary>Solution</summary>
+<details>
+  <summary>Solution</summary>
 
-  ```
-  inurl:top.htm inurl:currenttime
-  ```
+```
+filetype:env "password"
+```
 
-  ```
-  intitle:"webcamXP 5"
-  ```
+*Explanation:* This command will return the environment files that contains the word “password”. These files are used to store credentials.
 
-  ```
-  inurl:"lvappl.htm"
-  ```
-  
-  *Explanation:* This command looks for specific URLs and titles that belongs to feeds from WebCameras.
+</details>
 
-  </details>
-  
-- Exercise 15
+# Exercise 14
 
-  Find email lists
+Find exposed web cameras
 
-  <details>
-    <summary>Solution</summary>
+<details>
+  <summary>Solution</summary>
 
-  ```
-  filetype:xls inurl:"email.xls"
-  ```
-  
-  *Explanation:* This command looks for specific XLS files that contains “email.xls” in their URL.
+```
+inurl:top.htm inurl:currenttime
+```
 
-  </details>
+```
+intitle:"webcamXP 5"
+```
+
+```
+inurl:"lvappl.htm"
+```
+
+*Explanation:* This command looks for specific URLs and titles that belongs to feeds from WebCameras.
+
+</details>
+
+# Exercise 15
+
+Find email lists
+
+<details>
+  <summary>Solution</summary>
+
+```
+filetype:xls inurl:"email.xls"
+```
+
+*Explanation:* This command looks for specific XLS files that contains “email.xls” in their URL.
+
+</details>
