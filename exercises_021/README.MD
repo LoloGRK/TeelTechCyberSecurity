@@ -5,6 +5,7 @@ Analyze a full email source code:
 - Get a trace of the server it passed through
 - Get a timeline of delivery
 - Try to extract attachments (if any)
+- Do you see something strange in the data obtained?
 
 ```
 Date: Thu, 22 Jun 2023 16:09:44 +0200 (CEST)
