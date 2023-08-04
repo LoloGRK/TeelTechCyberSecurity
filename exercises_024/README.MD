@@ -183,3 +183,8 @@
 
   </details>
     
+Questions:
+  
+  - Is there any account/domain compromised?
+  - What actions would you perform?
+  - Will you be able to stop it?
