@@ -1,4 +1,4 @@
-- Exercise 17
+# Exercise 17
 
   Install FoxyProxy extension in FireFox
   
