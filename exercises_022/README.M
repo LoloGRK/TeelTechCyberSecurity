@@ -1,6 +1,16 @@
 # Exercise 22
 
-  Installing and using theHarvester
+  Get emails associated from a domain using theHarvester.
+  
+  *Hint:* To request information from all services, you can use the following switch:
+  
+  ```
+  -b all
+  ```
+  
+  <details>
+  <summary>Installation</summary>
+  For this, you'll need to install theHarvester
   
   1. Get sources
 
@@ -78,18 +88,17 @@
       -f FILENAME, --filename FILENAME
                             Save the results to an XML and JSON file.
       -b SOURCE, --source SOURCE
-                            anubis, baidu, bevigil, binaryedge, bing, bingapi, bufferoverun, brave, censys, certspotter, criminalip,
-                            crtsh, dnsdumpster, duckduckgo, fullhunt, github-code, hackertarget, hunter, hunterhow, intelx, netlas,
-                            onyphe, otx, pentesttools, projectdiscovery, rapiddns, rocketreach, securityTrails, sitedossier,
-                            subdomaincenter, subdomainfinderc99, threatminer, tomba, urlscan, virustotal, yahoo, zoomeye
+                            anubis, baidu, bevigil, binaryedge, bing, bingapi, bufferoverun, brave, censys, certspotter, criminalip, crtsh, dnsdumpster, duckduckgo, fullhunt, github-code, hackertarget, hunter, hunterhow, intelx, netlas, onyphe, otx, pentesttools, projectdiscovery, rapiddns, rocketreach, securityTrails, sitedossier, subdomaincenter, subdomainfinderc99, threatminer, tomba, urlscan, virustotal, yahoo, zoomeye
     ```
   
     Here, we can use our proxy :)
+  </details>
     
   <details>
   <summary>Solution</summary>
 
   ```
+  # python3 theHarvester.py -d teeltech.com -b all
   *******************************************************************
   *  _   _                                            _             *
   * | |_| |__   ___    /\  /\__ _ _ ____   _____  ___| |_ ___ _ __  *
