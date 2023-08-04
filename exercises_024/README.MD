@@ -177,9 +177,9 @@
 
     6. Let's represent it in Maltego
 
-       [Download Maltego File](https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_024/exercise24.mtgl)
+      [Download Maltego File](https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_024/exercise24.mtgl)
 
-       <img src="https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_024/images/maltego_001.png" width="875">
+      <img src="https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_024/images/maltego_001.png" width="875">
 
   </details>
     
