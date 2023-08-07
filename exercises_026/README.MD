@@ -9,7 +9,7 @@
 
     <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/e83b5b0b7a9429e58c72167f2fb0e9ad2b4e971e/exercises_026/images/rules_menu_001.png" width="375">
     
-    <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/e83b5b0b7a9429e58c72167f2fb0e9ad2b4e971e/exercises_026/images/rules_menu_002.png" width="375">
+    <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/e83b5b0b7a9429e58c72167f2fb0e9ad2b4e971e/exercises_026/images/rules_menu_002.png" width="100%">
     
 <details>
 <summary>Conclusions</summary>
