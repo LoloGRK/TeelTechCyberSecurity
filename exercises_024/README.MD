@@ -1,6 +1,6 @@
 # Exercise 24
 
-  The following [email](https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_024/images/email_track_001.png) has been received.
+  The following [email](https://github.com/LoloGRK/TeelTechCyberSecurity/blob/5906f7d800793c6da5f73f5c8e23d0c850e3f04d/exercises_024/email_001.eml) has been received.
   
   Investigate it!
     
@@ -52,6 +52,7 @@
          <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_024/images/scam_enrollment_002.png" width="475">
          
          It was issued some days ago and it will expire next month.
+         
          <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_024/images/scam_enrollment_003.png" width="475">
      
       5.2. Domain Whois Information
