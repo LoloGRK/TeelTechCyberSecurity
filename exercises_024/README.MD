@@ -193,5 +193,5 @@ Questions:
   
     <details>
     <summary>Actions</summary>
-       - Notify darfield.school.nz admin to change passwords, update servers and perform a security audit.
+    - Notify darfield.school.nz admin to change passwords, update servers and perform a security audit.
     </details>
