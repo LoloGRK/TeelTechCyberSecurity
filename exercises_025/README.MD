@@ -1,4 +1,4 @@
-# Exercise 24
+# Exercise 25
 
   The following [email](https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_025/email_002.eml) has been received and the customer has sent the money. The money has never been received.
   
