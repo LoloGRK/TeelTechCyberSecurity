@@ -46,8 +46,12 @@
       <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_024/images/scam_enrollment.png" width="475">
 
       5.1 Check Certificate
+      
+         Click on *lock*
 
          <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_024/images/scam_enrollment_001.png" width="475">
+         
+         Click in *"Certificate is valid"*
          
          <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_024/images/scam_enrollment_002.png" width="475">
          
