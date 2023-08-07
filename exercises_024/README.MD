@@ -193,7 +193,5 @@ Questions:
   
     <details>
     <summary>Actions</summary>
-     - Notify darfield.school.nz admin to change passwords, update servers and perform a security audit.
-       - Formerly (with/without a warrant) ask darfield.school.nz for server logs when the email was sent.
-       - Analyze those logs searching for client-ip used to send the email.
+      - Notify darfield.school.nz admin to change passwords, update servers and perform a security audit.
     </details>
