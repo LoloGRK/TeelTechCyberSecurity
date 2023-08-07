@@ -113,6 +113,7 @@ Questions:
   - Repeat until No-Proxy/No-VPN
 - Once you have a residential IP, ask the ISP for the owner's information 
 - This email looks legit, what could have happened?
+  - Can someone be lying?
 
 </details>
 
