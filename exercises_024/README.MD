@@ -48,7 +48,7 @@
       5.1 Check Certificate
 
          <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_024/images/scam_enrollment_001.png" width="475">
-      
+         
          <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_024/images/scam_enrollment_002.png" width="475">
          
          It was issued some days ago and it will expire next month.
