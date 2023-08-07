@@ -1,6 +1,6 @@
 # Exercise 24
 
-  The following [email](https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_024/email_001.eml) has been received.
+  The following [email](https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_024/images/email_track_001.png) has been received.
   
   Investigate it!
     
@@ -24,7 +24,7 @@
      | Tue, 1 Aug 2023 06:50:03 -0700 (PDT) | Received By | 2002:a2e:b048:0:b0:2b9:e230:25ce |
      | - | Delivered | 2002:a17:906:850e:b0:992:d9ed:fc4b |
 
-     <img src="https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_024/images/email_track_001.png" width="775">
+     <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_024/images/email_track_001.png" width="775">
          
   4. Get Important headers
      
@@ -43,16 +43,16 @@
 
       Click on the link and check landing page
       
-      <img src="https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_024/images/scam_enrollment.png" width="475">
+      <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_024/images/scam_enrollment.png" width="475">
 
       5.1 Check Certificate
 
-         <img src="https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_024/images/scam_enrollment_001.png" width="475">
+         <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_024/images/scam_enrollment_001.png" width="475">
       
-         <img src="https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_024/images/scam_enrollment_002.png" width="475">
+         <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_024/images/scam_enrollment_002.png" width="475">
          
          It was issued some days ago and it will expire next month.
-         <img src="https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_024/images/scam_enrollment_003.png" width="475">
+         <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_024/images/scam_enrollment_003.png" width="475">
      
       5.2. Domain Whois Information
       
@@ -177,9 +177,9 @@
 
    6. Let's represent it in Maltego
 
-      [Download Maltego File](https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_024/exercise24.mtgl)
+      [Download Maltego File](https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_024/exercise24.mtgl)
      
-      <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/3a7af6ba8f4217dbc186cbdb6c45519c4732de03/exercises_024/images/maltego_001.png" width="875">
+      <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_024/images/maltego_001.png" width="875">
 
   </details>
     

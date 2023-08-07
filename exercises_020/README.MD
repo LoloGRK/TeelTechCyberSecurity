@@ -8,15 +8,15 @@
 
       Open a *New private window with Tor*
       
-      <img src="https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_020/images/Tor_001.png" width="250">
+      <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_020/images/Tor_001.png" width="250">
       
       Brave will be automatically connect to TOR network
       
-      <img src="https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_020/images/Tor_002.png" width="450">
+      <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_020/images/Tor_002.png" width="450">
   
     - Testing
 
-      <img src="https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_020/images/Tor_003.png" width="600">
+      <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f8bf34d996beba539518b871eac154c767d7dae/exercises_020/images/Tor_003.png" width="600">
       
   - Raw TOR network access
   
