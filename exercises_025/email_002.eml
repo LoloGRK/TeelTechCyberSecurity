@@ -1,0 +1,1351 @@
+Return-Path: <mdportmany@hotmail.com>
+Received: from llsb006-a16.servidoresdns.net (llsb006-a16.correo.lan [10.7.81.44])
+	 by llcm214-z.correo.lan with LMTPA;
+	 Wed, 15 Feb 2023 09:52:24 +0100
+X-Cyrus-Session-Id: llce239-a-16565-1676451144-1-4116089308747862878
+X-Sieve: CMU Sieve 3.0
+X-Original-To: administracion@novellaconstrucciones.com
+Received: from lp-mail-smtp-filter-in-a-11.correo.lan (lp-mail-smtp-filter-in-a-11.correo.lan [10.7.82.22])
+	by llsb006-a16.servidoresdns.net (Postfix) with ESMTP id 4PGsK46sv7z3rm
+	for <administracion@novellaconstrucciones.com>; Wed, 15 Feb 2023 09:52:24 +0100 (CET)
+X-Virus-Scanned: by Cyren
+X-Spam-Flag: NO
+X-Spam-Score: 0.1
+X-Spam-Level:
+X-Spam-Status: No, score=0.1 tagged_above=0.01 required=5 tests=[EXPURGATE]
+	autolearn=unavailable
+X-Spam-Tests: InternalSpamCheck
+X-purgate-ID: 155846::1676451144-9E045B62-9A839B0E/0/0
+X-purgate-type: clean
+Received: from llsb006-a16.servidoresdns.net ([10.7.81.44])
+	by lp-mail-smtp-filter-in-a-11.correo.lan (lp-mail-smtp-filter-in-a-11.correo.lan [10.7.82.22]) (amavisd-new, port 10024)
+	with ESMTP id LqpE9g1DYIuZ
+	for <administracion@novellaconstrucciones.com>;
+	Wed, 15 Feb 2023 09:52:24 +0100 (CET)
+Received: from EUR05-VI1-obe.outbound.protection.outlook.com (mail-vi1eur05olkn2045.outbound.protection.outlook.com [40.92.90.45])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by llsb006-a16.servidoresdns.net (Postfix) with ESMTPS id 4PGsK24VCFz2bk
+	for <administracion@novellaconstrucciones.com>; Wed, 15 Feb 2023 09:52:22 +0100 (CET)
+Authentication-Results: llsb006-a16.servidoresdns.net;
+    dkim=pass (2048-bit rsa key sha256) header.d=hotmail.com header.i=@hotmail.com header.b=YQs/l9f4 header.a=rsa-sha256 header.s=selector1;
+    dmarc=pass policy.published-domain-policy=none policy.applied-disposition=none policy.evaluated-disposition=none (p=none,d=none,d.eval=none) policy.policy-from=p header.from=hotmail.com;
+    spf=pass smtp.mailfrom=mdportmany@hotmail.com smtp.helo=EUR05-VI1-obe.outbound.protection.outlook.com
+Received-SPF: pass
+    (hotmail.com: Sender is authorized to use 'mdportmany@hotmail.com' in 'mfrom' identity (mechanism 'include:spf.protection.outlook.com' matched))
+    receiver=llsb006-a16.servidoresdns.net;
+    identity=mailfrom;
+    envelope-from="mdportmany@hotmail.com";
+    helo=EUR05-VI1-obe.outbound.protection.outlook.com;
+    client-ip=40.92.90.45
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=SGRdsYsxubXW+CyFpGPqjxaRksQ3Jp2RNcMGELEyEEjQsXsJAf9q+ECLK1rE3hMtKyAmcLUYbfOU4pEBLWXfMNkyGKZtQuAgiHp5okBFgYXXJz8QgzSSUQbO03Iq3hRCXgCFI8ITeGTV/P1Xl7J63tjYUykYMj9AqTm9tFSNIlh5CJoBx6UmL0vAanSL6zgLs0Ahf7qFdKdruprOSCOFVeL3MzEASnWiP0IQIbBD1kDypIqtJJGsqSPqk1LXc155c0U8Jc+QAAL9KuU3y6qMoe0fS6qMC05SPX4taBUlmrG6T+PNYF2PGuam239cF6bIzwrZeVUSgGyz9PB5/EVZ8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4VYnw678TrZV32neJRpOJ6Y6w9e4vOzCe9rt1QDaofE=;
+ b=QkK00q8N7ZSTIwW70YXt/ZnC0gLlfGriKTPpEd/2n1QkJ780Xs+ZHzfHP7C3kXfl8KGJI7kgptIQLtpfTfIbsku8+nE62dBq9mTPRG+3I8Vz0QllKodm3MoZVpKrW2wHpXQiglIPnFyiiJZgqPm6QrWWUG+ETqbIdwABfdn1tMh/9NpXLWJxhQpPXSL0bVl7/biorY91WqTprME75W1w5YfIvN0TiGNlkPMeR/PVhlgeHLkhTOey3stgJ9YVWhl2a2BzJA/VHDf9pC1psUBBjK7FU4Sy7vYMzGY3yRhG2v3xaO2y5NokvsQk1/mHrFPTDTt74fwFSA6F+7caTS3DMw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4VYnw678TrZV32neJRpOJ6Y6w9e4vOzCe9rt1QDaofE=;
+ b=YQs/l9f48chrk2l9/FE/ZlQot97yzbW62z/j5l5wbLm4EOZMN7tbM94Mv0EXfZ5tqg2Ko6yxD+AecgT953XLECxS2CpMBcw6DrFWlo0vWCnyeQrErsc7s05AtVGx+DziDmFYHoBxkq+kdRScivjsoRFKxT7Gc/o3omeb7ifxmnWQTUYYt+q4rqqLTcUKJwnV/BpeW3HGrws5V3+9+0tYcvANsy9IAJSsx3sGeMRHBNwuUoreMM59HwqCgnxgiVm52wW8J6rAa6yfhtte5ou0HmSvigO2Vs/Qe5bFF0w9HN7Trxu8KbUxH4+qLlb8KzSvHDzAdWjQGS3yCcaj0yVQFA==
+Received: from AM0PR10MB3249.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:208:186::22)
+ by DB4PR10MB6118.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:38d::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6086.24; Wed, 15 Feb
+ 2023 08:52:21 +0000
+Received: from AM0PR10MB3249.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::28cf:d6dc:9e06:8af0]) by AM0PR10MB3249.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::28cf:d6dc:9e06:8af0%5]) with mapi id 15.20.6086.026; Wed, 15 Feb 2023
+ 08:52:21 +0000
+From: Piscinas MD Portmany <mdportmany@hotmail.com>
+To: administracion novella <administracion@novellaconstrucciones.com>
+Subject: RE: Facturas pendientes
+Thread-Topic: Facturas pendientes
+Thread-Index: AQHZQRg8Hp9EI8cAAUKjntqQpwIIHK7Ps2AF
+Date: Wed, 15 Feb 2023 08:52:20 +0000
+Message-ID:
+ <AM0PR10MB3249A21E8CAA7A75AB1B5935C4A39@AM0PR10MB3249.EURPRD10.PROD.OUTLOOK.COM>
+References:
+ <AM0PR10MB32495655C563ADDA15C3D4ADC4DE9@AM0PR10MB3249.EURPRD10.PROD.OUTLOOK.COM>
+ <AM0PR10MB32490C761FF5A898CD35888BC4A29@AM0PR10MB3249.EURPRD10.PROD.OUTLOOK.COM>
+ <4a4bd4a0-437a-307f-d3b2-7f60bae197ea@novellaconstrucciones.com>
+In-Reply-To: <4a4bd4a0-437a-307f-d3b2-7f60bae197ea@novellaconstrucciones.com>
+Accept-Language: es-ES, en-US
+Content-Language: es-ES
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator:
+x-ms-exchange-messagesentrepresentingtype: 1
+x-tmn: [Q3B2TRI0MIdOo6yRV/TOhOrOwzDNSLTT]
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM0PR10MB3249:EE_|DB4PR10MB6118:EE_
+x-ms-office365-filtering-correlation-id: ae774a8a-f588-4983-3e11-08db0f31f323
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ oMo6yuCh9je4GpKfpc0zGTnMFwALor4sspg3zwyGWzs2NjraJjFpm+E0lAtm0t/6azKXeBYHQJlG2Hscf0cSet5fYvCAempA7SfGZRi0p628GWqOMWSD5owC4qXl7dE8ETRwVAik9wNAw8uknEQT5kc3SI23vNpnBIbNGZfAXZUrOqh+Nd+vcWckb/x1LCBGLqHbCu/MojHnYYlmL85KSmsd71B9T/ca5i4kYCUVf9QlXYFlS2xsLhbyDDSZcDteuCZEDHm1/LZ1SRowC8eEhqkxXyS9yjNcsVGN4lqqleH7b/o+0vBQVEqo7pHmMQrKVyvjyehiQ34iARnloRIxCvIvEzG0lJ1GIZKOnQNwnxWuYYk1HWCDJRGJ1kWwRR/j54XNMsyVQVM7cJKNCvreVnSPsTOtWftKT/A3zbwOpS+JAVCwN9IWClvVtlkfyqV+gBKynvEvFwR7mnioi4FJend7MnCIi/zDZURZzIvIYityantBCIPuoz+7Wqrea6PR6ecIPfP/aGjnexAo8mBwmLAPOeKDQGJzgMvCcfKOq7WRZJ5yxb7u6LzvTrJe3j8w7cGUpNLviGqFVbxspzKC+s1wlZgcXVOCN4I3Vf1V9GFmEnE0RyAVNpArDACa9MRu/Hint2KnUqtWo6aYHQ4mzwOiiXA6R03ktgHg7hnuqIM=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-8859-1?Q?NeET8ypdTdExIH0aa2mS8few+izUsWawL4XY9kvTlSK46yHSYOZFqpLCov?=
+ =?iso-8859-1?Q?UN6Lxzele9Ckdg5B/gD/BcORSp97xMYb4lmJT53207kL1BXin3DBuVM2GU?=
+ =?iso-8859-1?Q?7CnBbxNplCIQkZ8kyq3nRJxzVo19HYQec3l2q+oYlgrCX4nzNR7a7fUJUw?=
+ =?iso-8859-1?Q?aTVStLZvFbTYiI3VKdsDjkYxgBkUA2BikogSD6IMgjNTiRmn3YFgvMyovN?=
+ =?iso-8859-1?Q?eYs9Pv0Sc9p3TKxUkSlOoZmmbERbLxGiBCou1kbnjpw+cB6Md7XneXv27V?=
+ =?iso-8859-1?Q?QtZy1PJL2NAFwdWh0Yg6RelAHIgJabYN4h5ZYALoAIQeZqHzv/HBT+5rEF?=
+ =?iso-8859-1?Q?/DD9enf+uzq+7z8JB+TFvjvqFz/HLEpKW21FWhe8CkpmrzTlUnIPTKo9/S?=
+ =?iso-8859-1?Q?oBm9ubtl5Fev6iopmjHW2tKA6QhnnVuy10dNmnk5FrMsMwaF7JxuZTn3GB?=
+ =?iso-8859-1?Q?ZBAMJYKumKa1vjQ8dn03tWm4LT4AxNpf8tm0KBo6JMB/Hv3LEpYmjg+uGc?=
+ =?iso-8859-1?Q?vrdsUwGuPb5PX4yem7Sn58p77ys2E2vxucyXq0yDwT9unYoraAdryZcuJ5?=
+ =?iso-8859-1?Q?RuDnlWQRSqw41YyO+y9fWc9LfcFmMvnoxjP5hCgCKxI8E5DtpeJriaN+6N?=
+ =?iso-8859-1?Q?OyV6yce99oLt2m+iTweggyPyWRUXO3jSOkrt55MkCF92zIL5GZ6t8Wg+5h?=
+ =?iso-8859-1?Q?3OEUV6RG+balde7M5juHCZNwTQn1tf2qOvNqyAXSvKS2hRd3G0DAMHX2jN?=
+ =?iso-8859-1?Q?OAPdl2gcfBAkR531A+nGEOApwypXLaFO8qOjQoAdTB+ICEWyENlg2CmIAb?=
+ =?iso-8859-1?Q?nU5ZlLUnkXAF0YNZ6jX7ivspV2iZIi7kEDF1lswQS9/U7qBK5l8gADqIWr?=
+ =?iso-8859-1?Q?RKjgTQNZZAtKY9b2u6pFge/XE2RD/bjT+IGD1qSP2G3Ir3xKkuW51rSAwH?=
+ =?iso-8859-1?Q?pXDaH2FX+4a5146VTzPlBenNV0oIovr8GOVK6DcGCCa27r0UMPQWNY3h71?=
+ =?iso-8859-1?Q?ttTWXQlI4dPeHdk3AKGxSw4IONVG7bLhAd9dqXkchf53cIdSJB4iQIjx3a?=
+ =?iso-8859-1?Q?uTzVI17S0+Pa/e2sSEmAmJCz6T5OKxddGjHH1mCJjZijGlvqB0/PZzHBo9?=
+ =?iso-8859-1?Q?j3dr5o4oyd8Bu4T6iSlFobzktklRohc4/Sl5QUUfKuv+2MdO7FyftfwffR?=
+ =?iso-8859-1?Q?8X42SmAe5wOcI1Vyl46UqBEgBZUERA5Vi8CMLM1Lk1SUGRUzTwLxlyJ0PS?=
+ =?iso-8859-1?Q?0OGaIaXmDkc/cDbevr3rX3FwkxvyYN9Rs/mfcEVk97dEUrcMr21JQvPGKj?=
+ =?iso-8859-1?Q?BUAOZJfA+8Zh8P/l7NsesnTjew=3D=3D?=
+Content-Type: multipart/related;
+	boundary="_004_AM0PR10MB3249A21E8CAA7A75AB1B5935C4A39AM0PR10MB3249EURP_";
+	type="multipart/alternative"
+MIME-Version: 1.0
+X-OriginatorOrg: sct-15-20-4755-11-msonline-outlook-6b909.templateTenant
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR10MB3249.EURPRD10.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: ae774a8a-f588-4983-3e11-08db0f31f323
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Feb 2023 08:52:20.9732
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB4PR10MB6118
+
+--_004_AM0PR10MB3249A21E8CAA7A75AB1B5935C4A39AM0PR10MB3249EURP_
+Content-Type: multipart/alternative;
+	boundary="_000_AM0PR10MB3249A21E8CAA7A75AB1B5935C4A39AM0PR10MB3249EURP_"
+
+--_000_AM0PR10MB3249A21E8CAA7A75AB1B5935C4A39AM0PR10MB3249EURP_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+Buenos d=EDas,
+
+Encuentre a continuaci=F3n el nuevo n=FAmero de cuenta bancaria para el pag=
+o de las facturas pendientes.
+IBAN: ES33 0073 0100 5107 7241 4892
+
+Agradecer=EDa me enviases justificante de pago.
+
+Un saludo
+
+
+PISCINAS MD PORTMANY SL
+
+Avda. San Agust=EDn, Edif. El Ruedo
+
+Telf: 971.342.097
+
+
+
+
+AVISO LEGAL: Este mensaje y sus archivos adjuntos van dirigidos exclusivame=
+nte a su destinatario, pudiendo contener informaci=F3n confidencial sometid=
+a a secreto profesional. No est=E1 permitida su comunicaci=F3n, reproducci=
+=F3n o distribuci=F3n sin la autorizaci=F3n expresa de PISCINAS MD PORTMANY=
+ SL. Si usted no es el destinatario final, por favor, elim=EDnelo e inf=F3r=
+menos por esta v=EDa.
+
+PROTECCI=D3N DE DATOS: De conformidad con lo dispuesto en el Reglamento (UE=
+) 2016/679, de 27 de abril (GDPR), y la Ley Org=E1nica 3/2018, de 5 de dici=
+embre (LOPDGDD), le informamos de que los datos personales y la direcci=F3n=
+ de correo electr=F3nico del interesado, se tratar=E1n bajo la responsabili=
+dad de PISCINAS MD PORTMANY SL por un inter=E9s leg=EDtimo y para el env=ED=
+o de comunicaciones sobre nuestros productos y servicios, y se conservar=E1=
+n mientras ninguna de las partes se oponga a ello. Los datos no se comunica=
+r=E1n a terceros, salvo obligaci=F3n legal. Le informamos de que puede ejer=
+cer los derechos de acceso, rectificaci=F3n, portabilidad y supresi=F3n de =
+sus datos y los de limitaci=F3n y oposici=F3n a su tratamiento dirigi=E9ndo=
+se a Avenida San Agust=EDn, ED. El Ruedo, Local 2, - 07829 Sant Josep de sa=
+ Talaia (Illes Balears). E-mail: mdportmany@hotmail.com. Si considera que e=
+l tratamiento no se ajusta a la normativa vigente, podr=E1 presentar una re=
+clamaci=F3n ante la autoridad de control en www.aepd.es.
+
+
+________________________________
+De: administracion novella <administracion@novellaconstrucciones.com>
+Enviado: mi=E9rcoles, 15 de febrero de 2023 8:33
+Para: Piscinas MD Portmany <mdportmany@hotmail.com>
+Asunto: Re: Facturas pendientes
+
+
+Buenos d=EDas,
+
+
+Perd=F3n por no contestar, no me encontraba en la oficina estos d=EDas,
+
+
+Si te parece p=E1same el numero de cuenta nuevo o ya ten=E9is arreglado el =
+problema con el n=FAmero de cuenta?
+
+
+Saludos.
+
+
+[cid:part1.HTBOrFFS.0vozj6nR@novellaconstrucciones.com]
+
+
+El 14/02/2023 a las 14:25, Piscinas MD Portmany escribi=F3:
+Buenas tardes,
+Todav=EDa estoy esperando su respuesta con respecto a mi correo electr=F3ni=
+co a continuaci=F3n.
+Respuesta amable
+Un saludo
+
+
+
+PISCINAS MD PORTMANY SL
+
+Avda. San Agust=EDn, Edif. El Ruedo
+
+Telf: 971.342.097
+
+
+
+
+AVISO LEGAL: Este mensaje y sus archivos adjuntos van dirigidos exclusivame=
+nte a su destinatario, pudiendo contener informaci=F3n confidencial sometid=
+a a secreto profesional. No est=E1 permitida su comunicaci=F3n, reproducci=
+=F3n o distribuci=F3n sin la autorizaci=F3n expresa de PISCINAS MD PORTMANY=
+ SL. Si usted no es el destinatario final, por favor, elim=EDnelo e inf=F3r=
+menos por esta v=EDa.
+
+PROTECCI=D3N DE DATOS: De conformidad con lo dispuesto en el Reglamento (UE=
+) 2016/679, de 27 de abril (GDPR), y la Ley Org=E1nica 3/2018, de 5 de dici=
+embre (LOPDGDD), le informamos de que los datos personales y la direcci=F3n=
+ de correo electr=F3nico del interesado, se tratar=E1n bajo la responsabili=
+dad de PISCINAS MD PORTMANY SL por un inter=E9s leg=EDtimo y para el env=ED=
+o de comunicaciones sobre nuestros productos y servicios, y se conservar=E1=
+n mientras ninguna de las partes se oponga a ello. Los datos no se comunica=
+r=E1n a terceros, salvo obligaci=F3n legal. Le informamos de que puede ejer=
+cer los derechos de acceso, rectificaci=F3n, portabilidad y supresi=F3n de =
+sus datos y los de limitaci=F3n y oposici=F3n a su tratamiento dirigi=E9ndo=
+se a Avenida San Agust=EDn, ED. El Ruedo, Local 2, - 07829 Sant Josep de sa=
+ Talaia (Illes Balears). E-mail: mdportmany@hotmail.com<mailto:mdportmany@h=
+otmail.com>. Si considera que el tratamiento no se ajusta a la normativa vi=
+gente, podr=E1 presentar una reclamaci=F3n ante la autoridad de control en =
+www.aepd.es<http://www.aepd.es>.
+
+
+________________________________
+De: Piscinas MD Portmany <mdportmany@hotmail.com><mailto:mdportmany@hotmail=
+.com>
+Enviado: viernes, 10 de febrero de 2023 8:20
+Para: administraci=F3n <administracion@novellaconstrucciones.com><mailto:ad=
+ministracion@novellaconstrucciones.com>
+Asunto: RE: Facturas pendientes
+
+Buenos d=EDas,
+
+Por favor, confirme cu=E1ndo se pagar=E1 la facturas pendiente, Entonces le=
+ enviar=E9 un nuevo n=FAmero de cuenta bancaria para el pago, ya que no pod=
+emos recibir el pago con nuestra cuenta bancaria anterior debido a un error=
+ interno del banco.
+
+Un saludo
+
+
+PISCINAS MD PORTMANY SL
+
+Avda. San Agust=EDn, Edif. El Ruedo
+
+Telf: 971.342.097
+
+
+
+
+AVISO LEGAL: Este mensaje y sus archivos adjuntos van dirigidos exclusivame=
+nte a su destinatario, pudiendo contener informaci=F3n confidencial sometid=
+a a secreto profesional. No est=E1 permitida su comunicaci=F3n, reproducci=
+=F3n o distribuci=F3n sin la autorizaci=F3n expresa de PISCINAS MD PORTMANY=
+ SL. Si usted no es el destinatario final, por favor, elim=EDnelo e inf=F3r=
+menos por esta v=EDa.
+
+PROTECCI=D3N DE DATOS: De conformidad con lo dispuesto en el Reglamento (UE=
+) 2016/679, de 27 de abril (GDPR), y la Ley Org=E1nica 3/2018, de 5 de dici=
+embre (LOPDGDD), le informamos de que los datos personales y la direcci=F3n=
+ de correo electr=F3nico del interesado, se tratar=E1n bajo la responsabili=
+dad de PISCINAS MD PORTMANY SL por un inter=E9s leg=EDtimo y para el env=ED=
+o de comunicaciones sobre nuestros productos y servicios, y se conservar=E1=
+n mientras ninguna de las partes se oponga a ello. Los datos no se comunica=
+r=E1n a terceros, salvo obligaci=F3n legal. Le informamos de que puede ejer=
+cer los derechos de acceso, rectificaci=F3n, portabilidad y supresi=F3n de =
+sus datos y los de limitaci=F3n y oposici=F3n a su tratamiento dirigi=E9ndo=
+se a Avenida San Agust=EDn, ED. El Ruedo, Local 2, - 07829 Sant Josep de sa=
+ Talaia (Illes Balears). E-mail: mdportmany@hotmail.com<mailto:mdportmany@h=
+otmail.com>. Si considera que el tratamiento no se ajusta a la normativa vi=
+gente, podr=E1 presentar una reclamaci=F3n ante la autoridad de control en =
+www.aepd.es<http://www.aepd.es>.
+
+
+________________________________
+De:Piscinas MD Portmany <mdportmany@hotmail.com><mailto:mdportmany@hotmail.=
+com>
+Enviado:jueves, 9 de febrero de 2023 12:43
+Para:administraci=F3n <administracion@novellaconstrucciones.com><mailto:adm=
+inistracion@novellaconstrucciones.com>
+Asunto:Facturas pendientes
+
+
+Buenos d=EDas, les recordamos que, salvo error, nos quedan pendientes de co=
+bro del a=F1o pasado las facturas adjuntas. Gracias.
+
+Un saludo,
+Gisela
+
+PISCINAS MD PORTMANY SL
+
+Avda. San Agust=EDn, Edif. El Ruedo
+
+Telf: 971.342.097
+
+
+
+AVISO LEGAL: Este mensaje y sus archivos adjuntos van dirigidos exclusivame=
+nte a su destinatario, pudiendo contener informaci=F3n confidencial sometid=
+a a secreto profesional. No est=E1 permitida su comunicaci=F3n, reproducci=
+=F3n o distribuci=F3n sin la autorizaci=F3n expresa de PISCINAS MD PORTMANY=
+ SL. Si usted no es el destinatario final, por favor, elim=EDnelo e inf=F3r=
+menos por esta v=EDa.
+
+PROTECCI=D3N DE DATOS: De conformidad con lo dispuesto en el Reglamento (UE=
+) 2016/679, de 27 de abril (GDPR), y la Ley Org=E1nica 3/2018, de 5 de dici=
+embre (LOPDGDD), le informamos de que los datos personales y la direcci=F3n=
+ de correo electr=F3nico del interesado, se tratar=E1n bajo la responsabili=
+dad de PISCINAS MD PORTMANY SL por un inter=E9s leg=EDtimo y para el env=ED=
+o de comunicaciones sobre nuestros productos y servicios, y se conservar=E1=
+n mientras ninguna de las partes se oponga a ello. Los datos no se comunica=
+r=E1n a terceros, salvo obligaci=F3n legal. Le informamos de que puede ejer=
+cer los derechos de acceso, rectificaci=F3n, portabilidad y supresi=F3n de =
+sus datos y los de limitaci=F3n y oposici=F3n a su tratamiento dirigi=E9ndo=
+se a Avenida San Agust=EDn, ED. El Ruedo, Local 2, - 07829 Sant Josep de sa=
+ Talaia (Illes Balears). E-mail: mdportmany@hotmail.com<mailto:mdportmany@h=
+otmail.com>. Si considera que el tratamiento no se ajusta a la normativa vi=
+gente, podr=E1 presentar una reclamaci=F3n ante la autoridad de control en =
+www.aepd.es<http://www.aepd.es>.
+
+
+--
+
+
+--_000_AM0PR10MB3249A21E8CAA7A75AB1B5935C4A39AM0PR10MB3249EURP_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div style=3D"font-family: Arial, Helvetica, sans-serif; font-size: 10pt; c=
+olor: rgb(0, 0, 0);">
+Buenos d=EDas,
+<div><br>
+</div>
+<div>Encuentre a continuaci=F3n el nuevo n=FAmero de cuenta bancaria para e=
+l pago de las facturas pendientes.</div>
+<div>IBAN: <b>ES33 0073 0100 5107 7241 4892</b></div>
+<div><br>
+</div>
+<div>Agradecer=EDa me enviases justificante de pago.</div>
+<div><br>
+</div>
+Un saludo<br>
+</div>
+<div>
+<div style=3D"font-family: Arial, Helvetica, sans-serif; font-size: 10pt; c=
+olor: rgb(0, 0, 0);">
+<br>
+</div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div></div>
+<div></div>
+<div id=3D"divtagdefaultwrapper" dir=3D"ltr" style=3D"color:rgb(0,0,0)">
+<p style=3D"margin-top:0px; margin-bottom:0px; font-family:Calibri,Helvetic=
+a,sans-serif; font-size:8pt">
+<span id=3D"ms-rterangepaste-start"></span></p>
+<p style=3D"margin-top:0px; margin-bottom:0px; font-family:&quot;Times New =
+Roman&quot;; font-size:8pt">
+<span style=3D"font-family:Constantia,&quot;Hoefler Text&quot;,serif"><span=
+ style=3D"font-family:Arial,Helvetica,sans-serif; font-size:10pt"><b>PISCIN=
+AS MD PORTMANY SL</b></span></span></p>
+<p style=3D"margin-top:0px; margin-bottom:0px"><span style=3D"font-family:A=
+rial,Helvetica,sans-serif">Avda. San Agust=EDn, Edif. El Ruedo</span></p>
+<p style=3D"margin-top:0px; margin-bottom:0px"><span style=3D"font-family:A=
+rial,Helvetica,sans-serif">Telf: 971.342.097</span></p>
+<p style=3D"margin-top:0px; margin-bottom:0px; font-family:&quot;Times New =
+Roman&quot;; font-size:8pt">
+<span style=3D"font-family:Arial,Helvetica,sans-serif"></span><br>
+</p>
+<span style=3D"font-family:Arial,Helvetica,sans-serif"></span>
+<p style=3D"margin-top:0px; margin-bottom:0px; font-family:&quot;Times New =
+Roman&quot;; font-size:8pt">
+<br>
+<span style=3D"font-family:Arial,Helvetica,sans-serif"></span></p>
+<p style=3D"margin-top:0px; margin-bottom:0px; font-family:&quot;Times New =
+Roman&quot;; font-size:8pt">
+<span style=3D"font-family:Arial,Helvetica,sans-serif"></span><br>
+</p>
+<span style=3D"font-family:Arial,Helvetica,sans-serif"></span>
+<p style=3D"margin-top:0px; margin-bottom:0px; font-family:&quot;Times New =
+Roman&quot;; font-size:8pt">
+</p>
+<span style=3D"font-family:Arial,Helvetica,sans-serif"></span>
+<p style=3D"font-family:&quot;Times New Roman&quot;; font-size:medium; text=
+-align:start"><span style=3D"font-size:9pt"><strong>AVISO LEGAL</strong></s=
+pan><span style=3D"font-size:9pt">: Este mensaje y sus archivos adjuntos va=
+n dirigidos exclusivamente a su destinatario, pudiendo
+ contener informaci=F3n confidencial sometida a secreto profesional. No est=
+=E1 permitida su comunicaci=F3n, reproducci=F3n o distribuci=F3n sin la aut=
+orizaci=F3n expresa de PISCINAS MD PORTMANY SL. Si usted no es el destinata=
+rio final, por favor, elim=EDnelo e inf=F3rmenos
+ por esta v=EDa.</span></p>
+<p style=3D"font-family:&quot;Times New Roman&quot;; font-size:medium; text=
+-align:start"><span style=3D"font-family:&quot;Times New Roman&quot;; text-=
+align:justify; color:rgb(0,0,0); font-size:9pt"><strong>PROTECCI=D3N DE DAT=
+OS</strong></span><span style=3D"font-family:&quot;Times New Roman&quot;; t=
+ext-align:justify; color:rgb(0,0,0); font-size:9pt">:
+ De conformidad con lo dispuesto en el Reglamento (UE) 2016/679, de 27 de a=
+bril (GDPR), y la Ley Org=E1nica 3/2018, de 5 de diciembre (LOPDGDD), le in=
+formamos de que los datos personales y la direcci=F3n de correo electr=F3ni=
+co del interesado, se tratar=E1n bajo la
+ responsabilidad de PISCINAS MD PORTMANY SL por un inter=E9s leg=EDtimo y p=
+ara el env=EDo de comunicaciones sobre nuestros productos y servicios, y se=
+ conservar=E1n mientras ninguna de las partes se oponga a ello. Los datos n=
+o se comunicar=E1n a terceros, salvo obligaci=F3n
+ legal. Le informamos de que puede ejercer los derechos de acceso, rectific=
+aci=F3n, portabilidad y supresi=F3n de sus datos y los de limitaci=F3n y op=
+osici=F3n a su tratamiento dirigi=E9ndose a Avenida San Agust=EDn, ED. El R=
+uedo, Local 2, - 07829 Sant Josep de sa Talaia
+ (Illes Balears). E-mail: mdportmany@hotmail.com. Si considera que el trata=
+miento no se ajusta a la normativa vigente, podr=E1 presentar una reclamaci=
+=F3n ante la autoridad de control en www.aepd.es.</span></p>
+<br>
+<p style=3D"margin-top:0px; margin-bottom:0px; font-family:Calibri,Helvetic=
+a,sans-serif; font-size:8pt">
+</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div id=3D"appendonsend"></div>
+<div style=3D"font-family:Arial,Helvetica,sans-serif; font-size:10pt; color=
+:rgb(0,0,0)">
+<br>
+</div>
+<hr tabindex=3D"-1" style=3D"display:inline-block; width:98%">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" co=
+lor=3D"#000000" style=3D"font-size:11pt"><b>De:</b> administracion novella =
+&lt;administracion@novellaconstrucciones.com&gt;<br>
+<b>Enviado:</b> mi=E9rcoles, 15 de febrero de 2023 8:33<br>
+<b>Para:</b> Piscinas MD Portmany &lt;mdportmany@hotmail.com&gt;<br>
+<b>Asunto:</b> Re: Facturas pendientes</font>
+<div>&nbsp;</div>
+</div>
+<div>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;">Buenos d=EDas, <br>
+</p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;"><br>
+</p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;">Perd=F3n por no contestar=
+, no me encontraba en la oficina estos d=EDas,
+<br>
+</p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;"><br>
+</p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;">Si te parece p=E1same el =
+numero de cuenta nuevo o ya ten=E9is arreglado el problema con el n=FAmero =
+de cuenta?</p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;"><br>
+</p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;">Saludos.</p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;"><br>
+</p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;"><img border=3D"0" style=
+=3D"max-width: 100%; height: auto;" data-outlook-trace=3D"F:1|T:1" src=3D"c=
+id:part1.HTBOrFFS.0vozj6nR@novellaconstrucciones.com"></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;"><br>
+</p>
+<div class=3D"x_moz-cite-prefix">El 14/02/2023 a las 14:25, Piscinas MD Por=
+tmany escribi=F3:<br>
+</div>
+<blockquote type=3D"cite">
+<div style=3D"font-family:Arial,Helvetica,sans-serif; font-size:10pt; color=
+:rgb(0,0,0)">
+Buenas tardes,
+<div>Todav=EDa estoy esperando su respuesta con respecto a mi correo electr=
+=F3nico a continuaci=F3n.</div>
+<div>Respuesta amable</div>
+Un saludo<br>
+</div>
+<div style=3D"font-family:Arial,Helvetica,sans-serif; font-size:10pt; color=
+:rgb(0,0,0)">
+<br>
+</div>
+<div>
+<div style=3D"font-family:Arial,Helvetica,sans-serif; font-size:10pt; color=
+:rgb(0,0,0)">
+<br>
+</div>
+<div id=3D"x_Signature">
+<div>
+<div id=3D"x_divtagdefaultwrapper" dir=3D"ltr" style=3D"color:rgb(0,0,0)">
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; font-family:Calibri,Helvetica,sans-serif; font-size:8pt">
+<span id=3D"x_ms-rterangepaste-start"></span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; font-family:&quot;Times New Roman&quot;; font-size:8pt">
+<span style=3D""><span style=3D"font-family:Arial,Helvetica,sans-serif; fon=
+t-size:10pt"><b>PISCINAS MD PORTMANY SL</b></span></span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px">
+<span style=3D"font-family:Arial,Helvetica,sans-serif">Avda. San Agust=EDn,=
+ Edif. El Ruedo</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px">
+<span style=3D"font-family:Arial,Helvetica,sans-serif">Telf: 971.342.097</s=
+pan></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; font-family:&quot;Times New Roman&quot;; font-size:8pt">
+<span style=3D"font-family:Arial,Helvetica,sans-serif"></span><br>
+</p>
+<span style=3D"font-family:Arial,Helvetica,sans-serif"></span>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; font-family:&quot;Times New Roman&quot;; font-size:8pt">
+<br>
+<span style=3D"font-family:Arial,Helvetica,sans-serif"></span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; font-family:&quot;Times New Roman&quot;; font-size:8pt">
+<span style=3D"font-family:Arial,Helvetica,sans-serif"></span><br>
+</p>
+<span style=3D"font-family:Arial,Helvetica,sans-serif"></span>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; font-family:&quot;Times New Roman&quot;; font-size:8pt">
+</p>
+<span style=3D"font-family:Arial,Helvetica,sans-serif"></span>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;font-family:&quot;Times New=
+ Roman&quot;; font-size:medium; text-align:start">
+<span style=3D"font-size:9pt"><strong>AVISO LEGAL</strong></span><span styl=
+e=3D"font-size:9pt">: Este mensaje y sus archivos adjuntos van dirigidos ex=
+clusivamente a su destinatario, pudiendo contener informaci=F3n confidencia=
+l sometida a secreto profesional. No est=E1
+ permitida su comunicaci=F3n, reproducci=F3n o distribuci=F3n sin la autori=
+zaci=F3n expresa de PISCINAS MD PORTMANY SL. Si usted no es el destinatario=
+ final, por favor, elim=EDnelo e inf=F3rmenos por esta v=EDa.</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;font-family:&quot;Times New=
+ Roman&quot;; font-size:medium; text-align:start">
+<span style=3D"font-family:&quot;Times New Roman&quot;; text-align:justify;=
+ color:rgb(0,0,0); font-size:9pt"><strong>PROTECCI=D3N DE DATOS</strong></s=
+pan><span style=3D"font-family:&quot;Times New Roman&quot;; text-align:just=
+ify; color:rgb(0,0,0); font-size:9pt">: De conformidad con
+ lo dispuesto en el Reglamento (UE) 2016/679, de 27 de abril (GDPR), y la L=
+ey Org=E1nica 3/2018, de 5 de diciembre (LOPDGDD), le informamos de que los=
+ datos personales y la direcci=F3n de correo electr=F3nico del interesado, =
+se tratar=E1n bajo la responsabilidad de
+ PISCINAS MD PORTMANY SL por un inter=E9s leg=EDtimo y para el env=EDo de c=
+omunicaciones sobre nuestros productos y servicios, y se conservar=E1n mien=
+tras ninguna de las partes se oponga a ello. Los datos no se comunicar=E1n =
+a terceros, salvo obligaci=F3n legal. Le informamos
+ de que puede ejercer los derechos de acceso, rectificaci=F3n, portabilidad=
+ y supresi=F3n de sus datos y los de limitaci=F3n y oposici=F3n a su tratam=
+iento dirigi=E9ndose a Avenida San Agust=EDn, ED. El Ruedo, Local 2, - 0782=
+9 Sant Josep de sa Talaia (Illes Balears). E-mail:
+<a href=3D"mailto:mdportmany@hotmail.com" data-auth=3D"NotApplicable" class=
+=3D"x_moz-txt-link-abbreviated">
+mdportmany@hotmail.com</a>. Si considera que el tratamiento no se ajusta a =
+la normativa vigente, podr=E1 presentar una reclamaci=F3n ante la autoridad=
+ de control en
+<a href=3D"http://www.aepd.es" data-auth=3D"NotApplicable" class=3D"x_moz-t=
+xt-link-abbreviated">
+www.aepd.es</a>.</span></p>
+<br>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; font-family:Calibri,Helvetica,sans-serif; font-size:8pt">
+</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div style=3D"font-family:Arial,Helvetica,sans-serif; font-size:10pt; color=
+:rgb(0,0,0)">
+<br>
+</div>
+<hr tabindex=3D"-1" style=3D"display:inline-block; width:98%">
+<div id=3D"x_divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" =
+color=3D"#000000" style=3D"font-size:11pt"><b>De:</b> Piscinas MD Portmany
+<a href=3D"mailto:mdportmany@hotmail.com" data-auth=3D"NotApplicable" class=
+=3D"x_moz-txt-link-rfc2396E">
+&lt;mdportmany@hotmail.com&gt;</a><br>
+<b>Enviado:</b> viernes, 10 de febrero de 2023 8:20<br>
+<b>Para:</b> administraci=F3n <a href=3D"mailto:administracion@novellaconst=
+rucciones.com" data-auth=3D"NotApplicable" class=3D"x_moz-txt-link-rfc2396E=
+">
+&lt;administracion@novellaconstrucciones.com&gt;</a><br>
+<b>Asunto:</b> RE: Facturas pendientes</font>
+<div>&nbsp;</div>
+</div>
+<div dir=3D"ltr">
+<div style=3D"font-family:Arial,Helvetica,sans-serif; font-size:10pt; color=
+:rgb(0,0,0)">
+</div>
+<div style=3D"margin:0px; font-size:10pt">Buenos d=EDas,
+<div style=3D"margin:0px"><br>
+</div>
+<div style=3D"margin:0px">Por favor, confirme cu=E1ndo se pagar=E1 la factu=
+ras pendiente, Entonces le enviar=E9 un nuevo n=FAmero de cuenta bancaria p=
+ara el pago, ya que no podemos recibir el pago con nuestra cuenta bancaria =
+anterior debido a un error interno del banco.</div>
+<div style=3D"margin:0px"><br>
+</div>
+Un saludo<br>
+</div>
+<div style=3D"margin:0px; font-size:14px">
+<div style=3D"margin:0px; font-size:10pt; font-family:Arial,Helvetica,sans-=
+serif"><br>
+</div>
+<div style=3D"margin:0px">
+<div style=3D"margin:0px">
+<div dir=3D"ltr" style=3D"margin:0px">
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-family:Calibri,Helvetica,sa=
+ns-serif; font-size:8pt">
+<span style=3D"margin:0px"></span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-family:&quot;Times New Roma=
+n&quot;; font-size:8pt">
+<span style=3D""><span style=3D"margin:0px; font-size:10pt; font-family:Ari=
+al,Helvetica,sans-serif"><b>PISCINAS MD PORTMANY SL</b></span></span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px">
+<span style=3D"margin:0px; font-family:Arial,Helvetica,sans-serif">Avda. Sa=
+n Agust=EDn, Edif. El Ruedo</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px">
+<span style=3D"margin:0px; font-family:Arial,Helvetica,sans-serif">Telf: 97=
+1.342.097</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-family:&quot;Times New Roma=
+n&quot;; font-size:8pt">
+<span style=3D"margin:0px; font-family:Arial,Helvetica,sans-serif"></span><=
+br>
+</p>
+<span style=3D"margin:0px; font-family:Arial,Helvetica,sans-serif"></span>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-family:&quot;Times New Roma=
+n&quot;; font-size:8pt">
+<br>
+<span style=3D"margin:0px; font-family:Arial,Helvetica,sans-serif"></span><=
+/p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-family:&quot;Times New Roma=
+n&quot;; font-size:8pt">
+<span style=3D"margin:0px; font-family:Arial,Helvetica,sans-serif"></span><=
+br>
+</p>
+<span style=3D"margin:0px; font-family:Arial,Helvetica,sans-serif"></span>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-family:&quot;Times New Roma=
+n&quot;; font-size:8pt">
+</p>
+<span style=3D"margin:0px; font-family:Arial,Helvetica,sans-serif"></span>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; font-family:&quot;Times New Roman&quot;; font-size:medium">
+<span style=3D"margin:0px; font-size:9pt"><strong>AVISO LEGAL</strong></spa=
+n><span style=3D"margin:0px; font-size:9pt">: Este mensaje y sus archivos a=
+djuntos van dirigidos exclusivamente a su destinatario, pudiendo contener i=
+nformaci=F3n confidencial sometida a secreto
+ profesional. No est=E1 permitida su comunicaci=F3n, reproducci=F3n o distr=
+ibuci=F3n sin la autorizaci=F3n expresa de PISCINAS MD PORTMANY SL. Si uste=
+d no es el destinatario final, por favor, elim=EDnelo e inf=F3rmenos por es=
+ta v=EDa.</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; font-family:&quot;Times New Roman&quot;; font-size:medium">
+<span style=3D"margin:0px; font-size:9pt; text-align:justify"><strong>PROTE=
+CCI=D3N DE DATOS</strong></span><span style=3D"margin:0px; font-size:9pt; t=
+ext-align:justify">: De conformidad con lo dispuesto en el Reglamento (UE) =
+2016/679, de 27 de abril (GDPR), y la
+ Ley Org=E1nica 3/2018, de 5 de diciembre (LOPDGDD), le informamos de que l=
+os datos personales y la direcci=F3n de correo electr=F3nico del interesado=
+, se tratar=E1n bajo la responsabilidad de PISCINAS MD PORTMANY SL por un i=
+nter=E9s leg=EDtimo y para el env=EDo de comunicaciones
+ sobre nuestros productos y servicios, y se conservar=E1n mientras ninguna =
+de las partes se oponga a ello. Los datos no se comunicar=E1n a terceros, s=
+alvo obligaci=F3n legal. Le informamos de que puede ejercer los derechos de=
+ acceso, rectificaci=F3n, portabilidad y
+ supresi=F3n de sus datos y los de limitaci=F3n y oposici=F3n a su tratamie=
+nto dirigi=E9ndose a Avenida San Agust=EDn, ED. El Ruedo, Local 2, - 07829 =
+Sant Josep de sa Talaia (Illes Balears). E-mail:
+<a href=3D"mailto:mdportmany@hotmail.com" data-auth=3D"NotApplicable" class=
+=3D"x_moz-txt-link-abbreviated">
+mdportmany@hotmail.com</a>. Si considera que el tratamiento no se ajusta a =
+la normativa vigente, podr=E1 presentar una reclamaci=F3n ante la autoridad=
+ de control en
+<a href=3D"http://www.aepd.es" data-auth=3D"NotApplicable" class=3D"x_moz-t=
+xt-link-abbreviated">
+www.aepd.es</a>.</span></p>
+<br>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-family:Calibri,Helvetica,sa=
+ns-serif; font-size:8pt">
+</p>
+</div>
+</div>
+</div>
+</div>
+<div style=3D"margin:0px; font-size:14px">
+<div style=3D"margin:0px; font-size:10pt; font-family:Arial,Helvetica,sans-=
+serif"><br>
+</div>
+<hr tabindex=3D"-1" style=3D"display:inline-block; width:0.96875px">
+<div dir=3D"ltr" style=3D"margin:0px"><font face=3D"Calibri, sans-serif" co=
+lor=3D"#000000" style=3D"font-size:11pt"><b>De:</b>Piscinas MD Portmany
+<a href=3D"mailto:mdportmany@hotmail.com" data-auth=3D"NotApplicable" class=
+=3D"x_moz-txt-link-rfc2396E">
+&lt;mdportmany@hotmail.com&gt;</a><br>
+<b>Enviado:</b>jueves, 9 de febrero de 2023 12:43<br>
+<b>Para:</b>administraci=F3n <a href=3D"mailto:administracion@novellaconstr=
+ucciones.com" data-auth=3D"NotApplicable" class=3D"x_moz-txt-link-rfc2396E"=
+>
+&lt;administracion@novellaconstrucciones.com&gt;</a><br>
+<b>Asunto:</b>Facturas pendientes</font>
+<div style=3D"margin:0px">&nbsp;</div>
+</div>
+<div dir=3D"ltr" style=3D"margin:0px">
+<div class=3D"x_x_x_elementToProof" style=3D"margin:0px; font-size:10pt; fo=
+nt-family:Arial,Helvetica,sans-serif; background-color:rgb(255,255,255)">
+<br>
+</div>
+<div class=3D"x_x_x_elementToProof" style=3D"margin:0px">
+<div class=3D"x_x_x_elementToProof" style=3D"margin:0px; font-size:10pt; fo=
+nt-family:Arial,Helvetica,sans-serif">
+Buenos d=EDas, les recordamos que, salvo error, nos quedan pendientes de co=
+bro del a=F1o pasado las facturas adjuntas. Gracias.</div>
+<div class=3D"x_x_x_elementToProof" style=3D"margin:0px; font-size:10pt; fo=
+nt-family:Arial,Helvetica,sans-serif">
+<br>
+</div>
+<div class=3D"x_x_x_elementToProof" style=3D"margin:0px; font-size:10pt; fo=
+nt-family:Arial,Helvetica,sans-serif">
+Un saludo,</div>
+<div class=3D"x_x_x_elementToProof" style=3D"margin:0px; font-size:10pt; fo=
+nt-family:Arial,Helvetica,sans-serif">
+Gisela</div>
+<div style=3D"margin:0px">
+<div style=3D"margin:0px">
+<div style=3D"margin:0px; font-size:10pt; font-family:Arial,Helvetica,sans-=
+serif">
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; background-color:rgb(255,255,255=
+); font-family:&quot;Times New Roman&quot;; font-size:8pt">
+<span style=3D""><span style=3D"margin:0px; font-size:10pt; font-family:Ari=
+al,Helvetica,sans-serif"><b>PISCINAS MD PORTMANY SL</b></span></span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-size:15px; background-color=
+:rgb(255,255,255)">
+<span style=3D"margin:0px">Avda. San Agust=EDn, Edif. El Ruedo</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-size:15px; background-color=
+:rgb(255,255,255)">
+<span style=3D"margin:0px">Telf: 971.342.097</span></p>
+<br>
+</div>
+<div style=3D"margin:0px; font-size:10pt; font-family:Arial,Helvetica,sans-=
+serif"><br>
+</div>
+<div style=3D"margin:0px; font-size:10pt; font-family:Arial,Helvetica,sans-=
+serif">
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; background-color:rgb(255,255,255=
+); font-family:&quot;Times New Roman&quot;; font-size:medium">
+<span style=3D"margin:0px; font-size:9pt"><strong>AVISO LEGAL</strong></spa=
+n><span style=3D"margin:0px; font-size:9pt">: Este mensaje y sus archivos a=
+djuntos van dirigidos exclusivamente a su destinatario, pudiendo contener i=
+nformaci=F3n confidencial sometida a secreto
+ profesional. No est=E1 permitida su comunicaci=F3n, reproducci=F3n o distr=
+ibuci=F3n sin la autorizaci=F3n expresa de PISCINAS MD PORTMANY SL. Si uste=
+d no es el destinatario final, por favor, elim=EDnelo e inf=F3rmenos por es=
+ta v=EDa.</span></p>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; background-color:rgb(255,255,255=
+); font-family:&quot;Times New Roman&quot;; font-size:medium">
+<span style=3D"margin:0px; font-size:9pt; color:rgb(0,0,0)!important; text-=
+align:justify"><strong>PROTECCI=D3N DE DATOS</strong></span><span style=3D"=
+margin:0px; font-size:9pt; color:rgb(0,0,0)!important; text-align:justify">=
+: De conformidad con lo dispuesto en el
+ Reglamento (UE) 2016/679, de 27 de abril (GDPR), y la Ley Org=E1nica 3/201=
+8, de 5 de diciembre (LOPDGDD), le informamos de que los datos personales y=
+ la direcci=F3n de correo electr=F3nico del interesado, se tratar=E1n bajo =
+la responsabilidad de PISCINAS MD PORTMANY
+ SL por un inter=E9s leg=EDtimo y para el env=EDo de comunicaciones sobre n=
+uestros productos y servicios, y se conservar=E1n mientras ninguna de las p=
+artes se oponga a ello. Los datos no se comunicar=E1n a terceros, salvo obl=
+igaci=F3n legal. Le informamos de que puede
+ ejercer los derechos de acceso, rectificaci=F3n, portabilidad y supresi=F3=
+n de sus datos y los de limitaci=F3n y oposici=F3n a su tratamiento dirigi=
+=E9ndose a Avenida San Agust=EDn, ED. El Ruedo, Local 2, - 07829 Sant Josep=
+ de sa Talaia (Illes Balears). E-mail:
+<a href=3D"mailto:mdportmany@hotmail.com" data-auth=3D"NotApplicable" class=
+=3D"x_moz-txt-link-abbreviated">
+mdportmany@hotmail.com</a>. Si considera que el tratamiento no se ajusta a =
+la normativa vigente, podr=E1 presentar una reclamaci=F3n ante la autoridad=
+ de control en
+<a href=3D"http://www.aepd.es" data-auth=3D"NotApplicable" class=3D"x_moz-t=
+xt-link-abbreviated">
+www.aepd.es</a>.</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div id=3D"x_x_Signature">
+<div>
+<div id=3D"x_x_divtagdefaultwrapper" dir=3D"ltr" style=3D"color:rgb(0,0,0)"=
+><br>
+<p style=3D"margin-top: 0px; margin-bottom: 0px;margin-top:0px; margin-bott=
+om:0px; margin-top:0px; margin-bottom:0px; font-family:Calibri,Helvetica,sa=
+ns-serif; font-size:8pt">
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</blockquote>
+<div class=3D"x_moz-signature">-- <br>
+<br>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+--_000_AM0PR10MB3249A21E8CAA7A75AB1B5935C4A39AM0PR10MB3249EURP_--
+
+--_004_AM0PR10MB3249A21E8CAA7A75AB1B5935C4A39AM0PR10MB3249EURP_
+Content-Type: image/png; name="FIRMA CAROL peque.png"
+Content-Description: FIRMA CAROL peque.png
+Content-Disposition: inline; filename="FIRMA CAROL peque.png"; size=27977;
+	creation-date="Wed, 15 Feb 2023 08:33:53 GMT";
+	modification-date="Wed, 15 Feb 2023 08:52:06 GMT"
+Content-ID: <part1.HTBOrFFS.0vozj6nR@novellaconstrucciones.com>
+Content-Transfer-Encoding: base64
+
+iVBORw0KGgoAAAANSUhEUgAAAfQAAAEBCAYAAACOiVcgAAAAAXNSR0IArs4c6QAAAARnQU1BAACx
+jwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAGzeSURBVHhe7Z0J/FVD+8DHi7+3N1skQvYlZMmW
+smeJSEiW9EqRIslaSiWJspYWRLaolJKlomgRlSKS7FtCEckSWfKe//nOnbm/ued37r3n3Ht/S7fn
++/nMPTNz5pwzZ86555nlmXnW83yUIAiCIAhrNf8yW0EQBEEQ1mJEoAuCIAhCESACXRAEQRCKABHo
+giAIglAEiEAXBEEQhCJABLogCIIgFAEi0AVBEAShCBCBLgiCIAhFgAh0QRAEQSgCRKALgiAIQhEg
+Al0QBEEQioCiF+gvv/yydulYtWqVmjNnjgkJgiAIwtpJJIH+zjvvqHPOOUett956SXfggQeavZWb
+E044Qbt0bLLJJqpBgwYmVPn45Zdf1LbbbquuvvpqE5PKMccco7bccksTEgRBENZVslpbe/TRR1Xr
+1q21v379+qpJkyZq1qxZauLEiWptMNS2/vrr6+0///yjt0FeeuklNWDAAH0/lRUqUBBW3uxDqE+f
+Pt3ECIIgCOsiGQX64sWL1c4776z9a4PwDuNf/0p0Qvzvf//T27WRu+66S1177bVq7NixqlmzZiZW
+qdtuu01df/31avz48er00083sYIgCMK6SMYu91atWuntl19+qbdReeyxx1K650866SSzJ5x69eqp
+4447TlcgSN+5c2ezpzQtW7ZMnnejjTZSQ4YMMXtyo127dmqbbbYxodKwf8cdd1SrV69WVapU0det
+UaNGxgrCokWL1NZbb53MJ+dftmyZ2Rufa665Rm9HjBiht5bhw4frbSZhHhwquemmm8ye9LRo0SLl
+mE8++cTsSSXuc54yZUpK+scff9zsEQRBEPIlYwudjy7EbZ1zXN++fdW///1vLdweeugh9d///jcp
+gIKQnnHipUuXqmOPPVYdccQRqnfv3mZvCQjwv/76S/Xp00dtuumm6sYbb1QrV65UDz/8cHJYIEi2
+Fvphhx2m5s6dm/Ye7f4NNthA3Xnnnerzzz9XAwcOVPvtt5/WLQijadOmektX+IYbbqg6duyow/n0
+cuy+++7q008/TTkH5XbBBRdowRrG8uXLdcWif//+Ov/Dhg3TeX7xxRdVo0aNTKpUqlWrpn766SfV
+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
+bJx22mkp5476Xtr0LlG/LXG/cRDnnSg0yIkdd9wx5fpxIH2U914wsJZ7Oo444gjWefd84WBiPO/P
+P//UcWwz8emnn+p0p556qvfzzz97/sfMa9iwoY774YcfTKpw/A9EyjWB4wYMGGBC4XTq1MmrU6eO
+t2bNGm/p0qXeN998Y/aE88orr+jzRiVueov/h/I233zznI6Nips3yrpevXqRrkeaa665xoQShMUF
+ca9HWX/xxRfanwnS+0LZW716tTdy5Ehvq6220nErV640KTJTHuUYhGttuOGG3vz58z2/Yuu99dZb
+3oQJE8zecPr166ePe/TRR71ff/3VW7JkiT5HlHx37txZpwumJUyZZ6JFixY6nX0Wr732ms5zOlat
+WqXzBhzHs+G/me15kLZnz57e33//7T377LM6zL1mom/fvjqdS1hcGNdee61O179/f12evN833XST
+2Zsejon77PyKl/7+ZGObbbbR53/77bd1nl566SUdPv30002K9GywwQY67SGHHGJion9b4n7j4r4T
+hWb//ff3/u///k+/K/Dwww/rbVTIe7b3Xigh4xu03377eQ899JAuVD5SEFWgH3rood5mm21mQiVw
+rN/aNqFw3nzzTZ3OwkvohtPRsWPHlD9JNqL+iSxx01vsMWwpz7IgmLcHHnggUl5Jk69AjwrpeZYu
+xJ155pkmlBl7PbZlVY4u3bp1i32PwDFhAof48ePHm1A4l19+uf5/8B6fdNJJJjZxbLYPG8Jk/fXX
+N6F4cP7gs0kHaW+77TYTSoRvuOEGEwonH4FOGr9lbULRyPXZHXDAAd6VV15pQuHY79GyZctMTIJx
+48ZFvh8EG9tp06bpuKj/p7jfuHzeiUJQtWrVWPkNQplke++FErKOoX/44YfKr7Xr7jHwa5d6m415
+8+apLl26mFAJV199tXriiSdMKJyDDjpIbwcPHqy3fmtObbnlltqfCb82rj766CPVo0cP1aFDB+XX
+xs2eimPQoEE6X9CkSRMdLkvo9qarna65Y445xsSWHb1799bP1G85mJjM/PPPP8aXwBdg6plnnjGh
+9JR3OcLTTz+dtfs5yOeff663rVq10tsgr776qvGF869//Uu99957+v/z4osvqq+++srsyc69996r
+y5duytGjR5vY6ASfTSZ8Yaa+//571aZNGx1miKEssN2tV1xxhd5GJZdnB3RHZ+uStt8Vv5Wut5bG
+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
+KGXXp3/8cazRMPE6EQbMnc6enfBPnqxU//4JP+um9+mT8AML64wbZwI+mA3l2l26KMWKeJQHH2ag
+tUn6RYsS56GV1759Yh+QB+7prrtMhAMmQ9nXr18iPHVqIl8uHEcam1dgaOOKKxJ+e45vvkmEAcM5
+o0axnF+i1c/8btaK5xwsLFSjhlKDBiXSUomw57r++kR+naETzVNPJeK7d0+cE0aPTsS5cB77TpDu
+uusSzh5jSTfrMtPzv/9+pVh+wb0m+eSZEP/00ybSJ9OzhUceUapHD6X69k2E7X7KxvYedOqUyGe3
+bonnTTm7z4ZzuLYQyAtpKSM3He8R+bvmmkSYVQDddwvCnnGU58I9cM1g5fPOOxP5GDPGRASgQsGx
+lLP7bbj33sR1XHO4XJOyAN5TjrNwDa4vCELuMA89Gx999JF3zTXXeK+88oo3dOhQ77777jN7SuML
+fc9vXXsPPfSQ98ILL3g9e/b0xo8f7915553ehAkTvG7dunm+UNZpR40a5T3++OPe1KlTvTvuuMMb
+MWKEjv/666+9K6+80vNb5zrctWtXzxfw3po1a7zWrVt7vvDX8Wk57zzP23prz+vUyfM22STRprRU
+q5YI++fXW1zfvol9dep4XtWqnle7dsKx78wzPa9BA8/baqtE+McfE2nxd+iQ8F9+eSK86aaed+ml
+CX/Tpol9PXokwrBwYcLftq3nnX225111leeNHOl5G2+ciN9zT88vEM+77bZEmLzWqJE4doMNPK9x
+Y8+77rrEvlatEvFAGHfFFYktcC6cJZhm/fUT8b//nghvuKHntWnjeeutV3IO2GMPz3/oCT/xM2d6
+/gMrSTNpkudtsUXCP2VKIn777RNlj9891y67JMLk4V//Svi5/qOPJvx//51I578vyeNWrkz4KS+c
+mw6/fXYHH5xwkOn584wIc69sv//e8z7/POFv2DBxLH7yCJmeLe8FYa5Ts2YibrvtEnFcf999E3GE
+eY7khedN2L47QLnwTsCHH5akJ27bbRPxvJvEn3NO4t30/zte586JOAt+XPAZZ3su+Lfc0vM6dkz4
+J08uid9vv0Reuf8gL72USLPPPolnc+qpiXj+Q8T7/1u9xcEff5SE27dPbPlfca/XXpsI16qVSCsI
+QmzMPy0zV199tf9d9T+sBsI/GsFmha7fatZbv8Xt9erVS/sBYd2nTx8T8rzhw4d748aNM6ESPvc/
+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
+
+--_004_AM0PR10MB3249A21E8CAA7A75AB1B5935C4A39AM0PR10MB3249EURP_--

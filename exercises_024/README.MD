@@ -179,12 +179,32 @@
 
       [Download Maltego File](https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_024/exercise24.mtgl)
      
-      <img src="https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_024/images/maltego_001.png" width="875">
+      <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/3a7af6ba8f4217dbc186cbdb6c45519c4732de03/exercises_024/images/maltego_001.png" width="875">
 
   </details>
     
 Questions:
   
   - Is there any account/domain compromised?
-  - What actions would you perform?
   - Will you be able to stop it?
+  - What does the dot "." means in the from address "FedEx \<lolo.bee.@gmail.com\>" ? 
+  - Why is the "client-ip: 209.85.220.101" equals to google's?
+  - What actions would you perform?
+  
+  <details>
+  <summary>Actions</summary>
+  - Notify darfield.school.nz admin to change passwords, update servers and perform a security audit.
+    - Formerly (with/without a warrant) ask darfield.school.nz for server logs when the email was sent.
+    - Analyze those logs searching for client-ip used to send the email.
+  - Notify mtsd.k12.wi.us admin to change passwords, update servers and perform a security audit.
+    - Formerly (with/without a warrant) ask mtsd.k12.wi.us for server logs when the email was sent.
+    - Analyze those logs searching for client-ip used to send the email.
+  - Formerly ask sendgrid.com to provide all the information they have, including login data, address, ips... for the campaign with ID: bm23_bbmqyoxdxrtroxvgymqygehbfg
+    - Once you have this information:
+      - Check the authenticity of provided data
+      - Check the owner of the IP address
+      - If it's a proxy/VPN
+        - Formerly ask the provider to provide all the information they have, including login data, address, ips... for this IP in the specific time interval they logged into sendgrid.com
+      - Repeat until No-Proxy/No-VPN
+  - Once you have a residential IP, ask the ISP for the owner's information 
+  </details>
