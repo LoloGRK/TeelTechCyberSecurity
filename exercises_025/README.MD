@@ -100,7 +100,7 @@ Questions:
 - Is there any account/domain compromised?
 - What actions would you perform?
 
-<details>
+  <details>
 <summary>Actions</summary>
   - Ask for a warrant to request for OPEN BANK, S.A. to provide information about the owner of the account #ES33 0073 0100 5107 7241 4892
   - Ask for a warrant to request for OPEN BANK, S.A. to provide information about the all the login data of the account #ES33 0073 0100 5107 7241 4892 looking for something unusual:
