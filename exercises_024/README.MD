@@ -209,18 +209,5 @@ Questions:
 
     <details>
     <summary>Actions</summary>
-     - Notify darfield.school.nz admin to change passwords, update servers and perform a security audit.
-       - Formerly (with/without a warrant) ask darfield.school.nz for server logs when the email was sent.
-       - Analyze those logs searching for client-ip used to send the email.
-    - Notify mtsd.k12.wi.us admin to change passwords, update servers and perform a security audit.
-      - Formerly (with/without a warrant) ask mtsd.k12.wi.us for server logs when the email was sent.
-      - Analyze those logs searching for client-ip used to send the email.
-    - Formerly ask sendgrid.com to provide all the information they have, including login data, address, ips... for the campaign with ID: bm23_bbmqyoxdxrtroxvgymqygehbfg
-      - Once you have this information:
-        - Check the authenticity of provided data
-        - Check the owner of the IP address
-        - If it's a proxy/VPN
-          - Formerly ask the provider to provide all the information they have, including login data, address, ips... for this IP in the specific time interval they logged into sendgrid.com
-        - Repeat until No-Proxy/No-VPN
-    - Once you have a residential IP, ask the ISP for the owner's information 
+    blah blah blah
     </details>
