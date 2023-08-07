@@ -209,5 +209,5 @@ Questions:
 
     <details>
     <summary>Actions</summary>
-    blah blah blah
+      blah blah blah
     </details>
