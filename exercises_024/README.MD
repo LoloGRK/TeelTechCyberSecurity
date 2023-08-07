@@ -191,8 +191,8 @@ Questions:
   - Why is the "client-ip: 209.85.220.101" equals to google's?
   - What actions would you perform?
   
-  <details>
-  <summary>Actions</summary>
+    <details>
+    <summary>Actions</summary>
     - Notify darfield.school.nz admin to change passwords, update servers and perform a security audit.
       - Formerly (with/without a warrant) ask darfield.school.nz for server logs when the email was sent.
       - Analyze those logs searching for client-ip used to send the email.
@@ -207,4 +207,4 @@ Questions:
           - Formerly ask the provider to provide all the information they have, including login data, address, ips... for this IP in the specific time interval they logged into sendgrid.com
         - Repeat until No-Proxy/No-VPN
     - Once you have a residential IP, ask the ISP for the owner's information 
-  </details>
+    </details>
