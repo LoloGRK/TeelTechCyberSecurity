@@ -25,7 +25,7 @@
      | Wed, 15 Feb 2023 09:52:24 +0100 (CET) | Received by | llsb006-a16.servidoresdns.net |
      | Wed, 15 Feb 2023 09:52:24 +0100 | Delivered | llcm214-z.correo.lan |
 
-     <img src="https://raw.githubusercontent.com/LoloGRK/TeelTechCyberSecurity/main/exercises_025/images/email_track_001.png" width="775">
+     <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/86e7d4a7d1f53cca3532960758b79b6ad35c4a9b/exercises_025/images/email_track_001.png" width="775">
          
   4. Get Important headers
      
