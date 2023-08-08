@@ -8,7 +8,7 @@ Analyze a full email source code:
 - Do you see something strange in the data obtained?
 
 ```
-Date: Thu, 22 Jun 2023 16:09:44 +0200 (CEST)
+Date: Thu, 22 Jun 2023 15:30:44 +0200 (CEST)
 MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary=16898774101.5FD15b.80487
 Content-Transfer-Encoding: 7bit
@@ -198,10 +198,10 @@ JSVFT0YNCg==
   To: <mb@bga.es>
   ```
 
-  The email was written Thu, 22 Jun 2023 16:09:44 +0200 (CEST)
+  The email was written Thu, 22 Jun 2023 15:30:44 +0200 (CEST)
   
   ```
-  Date: Thu, 22 Jun 2023 16:09:44 +0200 (CEST)
+  Date: Thu, 22 Jun 2023 15:30:44 +0200 (CEST)
   ```
   
   The email's journey involves passing through several servers. It's important to read the "Received" fields from bottom to top to understand the chronological order of the email's path.
@@ -288,7 +288,7 @@ JSVFT0YNCg==
   
   | Date | Event | Server |
   |------|-------|--------|
-  | Thu, 22 Jun 2023 16:09:44 +0200 (CEST) | Email was written | DESKTOPU75QM2U (Client) |
+  | Thu, 22 Jun 2023 15:30:44 +0200 (CEST) | Email was written | DESKTOPU75QM2U (Client) |
   | Thu, 22 Jun 2023 15:31:12 +0200 (CEST) | Received for delivery | hl1085.dinaserver.com |
   | Thu, 22 Jun 2023 15:31:20 +0200 (CEST) | Received by | llsc091-a16.servidoresdns.net |
   | Thu, 22 Jun 2023 15:31:21 +0200 (CEST) | Received by | lp-mail-smtp-filter-in-b-23.correo.lan |
