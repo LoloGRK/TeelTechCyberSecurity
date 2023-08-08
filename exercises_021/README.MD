@@ -340,7 +340,7 @@ JSVFT0YNCg==
   /tmp/attachment.bin: PDF document, version 1.3, 0 pages
   ```
   
-  So if rename it to PDF we can open it with any viewer.
+  So if we rename it to PDF we can open it with any viewer.
   
   
   </details>

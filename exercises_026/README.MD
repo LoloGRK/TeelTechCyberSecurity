@@ -44,3 +44,5 @@
       This way, if the users asks for support to the provider or even Microsoft, the message will be deleted, making sure the scammer, that he will not receive any help.
   
 The hacker got access to the user's account and had full control over it.
+
+With access to the account, emails can be modified by using low level protocols
