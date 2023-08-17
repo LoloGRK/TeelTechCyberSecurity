@@ -34,7 +34,7 @@ https://truecrimetournyc.com/wp-admin/zung/lastonline/tenit.html
    
 2. Access the site
 
-   <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/8f69b9289a2a95d1c39b1e2b6c92a3d0336085b5/exercises_029/images/email_headers_001.png" width="100%">
+   <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/811b209702c9d9c186c23c611e69887d7c50e859/exercises_030/images/landing_001.png" width="100%">
    
    1. Fill in the form and check its behaviour.
       
