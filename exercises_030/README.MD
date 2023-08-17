@@ -40,6 +40,6 @@ https://truecrimetournyc.com/wp-admin/zung/lastonline/tenit.html
       
       Redirection to legit T-Mobile site.
 
-3. As it's a legit site which seems to be hacked, request for server logs to investigate them to check when was this file uploaded and try to get the IP.
+3. As it's a legit site which seems to be hacked, request for server logs to investigate them to check when was this file uploaded and try to get more information.
 
 </details>
