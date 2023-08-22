@@ -87,6 +87,6 @@ If we check this IP information:
 
 <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/7e5e971aa20bacbefea25575a0fa7463714e50ea/exercises_031/images/ip_location.png" width="100%">
 
-Actions to perform?
-
 </details>
+
+Actions to perform?
