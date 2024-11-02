@@ -1,6 +1,6 @@
 # Exercise 16
 
-  Setup an Anonymous proxy server and check that your IP address has changed.
+  Setup an Anonymous proxy server and check that your IP address has changed. For this exercise, we will use dante, a SOCKS client and server implementation for UNIX.
   
   - Website: [https://github.com/notpeter/dante](https://github.com/notpeter/dante)
   - Type: Anonymous
