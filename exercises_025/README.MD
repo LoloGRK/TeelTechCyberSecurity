@@ -167,6 +167,5 @@ The hacker got access to the user's account and had full control over it.
 
 With access to the account or to the server, emails can be modified by using low level protocols knowledge
 
-
 </details>
 
