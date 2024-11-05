@@ -107,23 +107,24 @@ Questions:
 
 - Ask for a warrant to request for OPEN BANK, S.A. to provide information about the all the login data of the account #ES33 0073 0100 5107 7241 4892 looking for something unusual:
 
-  - IPs from other regions or countries
-
-  - Different user-agents
-
-  - Different time zones
+   - IPs from other regions or countries
+   - Different user-agents
+   - Different time zones
 
 - If it's a proxy/VPN
 
-  - Formerly ask the provider to provide all the information they have, including login data, address, ips... for this IP in the specific time interval they logged into the online banking service
+   - Formerly ask the provider to provide all the information they have, including login data, address, ips... for this IP in the specific time interval they logged into the online banking service
 
-  - Repeat until No-Proxy/No-VPN
+   - Repeat until No-Proxy/No-VPN
 
 - Once you have a residential IP, ask the ISP for the owner's information 
 
 - This email looks legit, what could have happened?
 
-  - Can someone be lying?
+   - Can someone be lying?
+
+   - After checking email account's configuration, we checked that there was some additional configuration enabled:
+     ![Email Forwarding](images/forward_configuration.png)
 
 </details>
 
