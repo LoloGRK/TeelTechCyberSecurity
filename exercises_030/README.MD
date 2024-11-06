@@ -5,8 +5,7 @@ The following SMS has been received.
 It seems suspicious.
 
 ```
-Your T-Mobile account has been blocked. To restore it, please login to the customer portal and fill in the required information.
-https://truecrimetournyc.com/wp-admin/zung/lastonline/tenit.html
+(Freight Center) We've tried to deliver your parcel more than one time, please confirm your delivery address or your parcel will be shipped back: itsssl.com/correospost
 ```
 
 <details>
@@ -14,32 +13,24 @@ https://truecrimetournyc.com/wp-admin/zung/lastonline/tenit.html
 
 1. Analyze URL
 
-   https://truecrimetournyc.com/wp-admin/zung/lastonline/tenit.html
+   itsssl.com/correospost
    
-   - TLD
-     
-     https://truecrimetournyc.com
-     
-     It has nothing to do with T-Mobile website https://www.t-mobile.com/
+   If you open it from your laptop browser, you'll get an arabic website, but it's not the website that the user landed.
    
-   - Path
+   Switch your browser to behave like a smartphone or tablet and refresh the website and keep the Developer Tools - Network tab open.
    
-     ```
-     /wp-admin/zung/lastonline/tenit.html
-     ```
-     
-     The folder *wp-admin* is from [WordPress](https://wordpress.org/) admin directory. Only authorized users has access to this folder, ussually *admin* user has access to it.
-     
-     WordPress is a plugin-based CMS, which requires constant updates due to it Open-Source nature. If the site is not updated frequently, it might get hacked. So, as it seems to be a WordPress Site, it's very probable that it had been hacked and included new content.
+   ![](images/step_1.png)
    
-2. Access the site
+   ![](images/step_2.png)
+   
+   ![](images/step_3.png)
+   
+   Before submitting the form, clear the network tab, so your first request will be the one from the from.
+   
+   ![](images/step_4.png)
+   
+   Once you fill the forms and send the "Deliver" button. Check the content and all the data has been sent to the following url http://srv223049.hoster-test.ru/cas/corr/infos.php
 
-   <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/811b209702c9d9c186c23c611e69887d7c50e859/exercises_030/images/landing_001.png" width="100%">
-   
-   1. Fill in the form and check its behaviour.
-      
-      Redirection to legit T-Mobile site.
-
-3. As it's a legit site which seems to be hacked, request for server logs to investigate them to check when was this file uploaded and try to get more information.
+2. As it's a legit site which seems to be hacked, request for server logs to investigate them to check when was this file uploaded and try to get more information.
 
 </details>
