@@ -4,6 +4,9 @@ This is a walkthrough for metasploitable 1 machine.
 
 [Download Metasploitable v1](https://sourceforge.net/projects/metasploitable/) and install it.
 
+  - User: user
+  - Password: user
+
 Choose any of the vulnerabilities and try to gain access to the machine.
 
 Notes :
