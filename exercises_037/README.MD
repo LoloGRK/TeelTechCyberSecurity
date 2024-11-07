@@ -2,7 +2,7 @@
 
 This is a walkthrough for metasploitable 1 machine. 
 
-[Download Metasploitable v1](https://sourceforge.net/projects/metasploitable/) and install it.
+[Download Metasploitable v1](https://download.vulnhub.com/metasploitable/Metasploitable.zip) and install it.
 
   - User: user
   - Password: user
