@@ -11,7 +11,7 @@
 docker start maltrail
 docker logs -f --tail 100 maltrail
 ```
-6. Open the following url http://127.0.0.1:8334/
+6. Open the following url http://127.0.0.1:8338/
 7. Credentials:
     - User: admin
     - Password: changeme!
