@@ -5,8 +5,13 @@ The following SMS has been received.
 It seems suspicious.
 
 ```
-(Freight Center) We've tried to deliver your parcel more than one time, please confirm your delivery address or your parcel will be shipped back: https://wiki.grksystems.com/piscinas/web.html
+(Freight Center) We've tried to deliver your parcel more than one time, please confirm your delivery address or your parcel will be shipped back: https://shorturl.at/sqsqM
 ```
+### Tasks:
+
+* Resolve DNS, ASN, country & hosting.
+* Discover new subdomains and other related hostings from whois information and neighbours (A hosting neighbour is a website hosted in the same server, they share IP)
+* Get all the IOCs, if any
 
 <details>
 <summary>Solution</summary>
