@@ -55,7 +55,7 @@ SrcIp - [Date-Time] "<Method> - <path> <HTTP_Version>" <statusCode> <size> "<ful
    81.32.34.131 - - [17/Aug/2023:14:58:06 +0200] "GET /c99.php HTTP/1.1" 200 5313 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
    ```
 
-   We can check that there's a /c99.php request. [C99](https://github.com/4Hackerz/C99-Shell/tree/master) is one of the most famous php-webshell
+   We can check that there's a /c99.php request. [C99](https://github.com/c99-shell) is one of the most famous php-webshell
    
    <img src="https://github.com/LoloGRK/TeelTechCyberSecurity/blob/2e7446180c58e31f05159bb7ec39345449cb994a/exercises_031/images/c99shell.png" width="100%">
    
