@@ -5,7 +5,7 @@ The following SMS has been received.
 It seems suspicious.
 
 ```
-(Freight Center) We've tried to deliver your parcel more than one time, please confirm your delivery address or your parcel will be shipped back: itsssl.com/correospost
+(Freight Center) We've tried to deliver your parcel more than one time, please confirm your delivery address or your parcel will be shipped back: https://wiki.grksystems.com/piscinas/web.html
 ```
 
 <details>
