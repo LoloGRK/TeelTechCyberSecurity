@@ -1,4 +1,4 @@
-# Exercise 37
+# Exercise 36
 
 Install Nessus and perform a basic scan.
 
