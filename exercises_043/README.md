@@ -8,7 +8,7 @@
 
 To get the malware sample:
 
-1. Go to: [www.malwarebazaar.ch](https://bazaar.abuse.ch/)
+1. Go to: [Malware Bazaar](https://bazaar.abuse.ch/)
 2. Search for a sample with the following SHA256:
     * 8977bd6cba3e53c7f58f54531bd537d8fd760c887aaa2ec40e63a56dfed70e54
 3. Download it
