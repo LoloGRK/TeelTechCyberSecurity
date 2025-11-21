@@ -10,7 +10,7 @@ To get the malware sample:
 
 1. Go to: [www.malwarebazaar.ch](https://bazaar.abuse.ch/)
 2. Search for a sample with the following SHA256:
-    * 0253bd8a62406deeab51514384070dff10cf8d5fcd04f838d6133a40bea8506f
+    * 8977bd6cba3e53c7f58f54531bd537d8fd760c887aaa2ec40e63a56dfed70e54
 3. Download it
 4. Extract it
     * Password: infected
