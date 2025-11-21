@@ -1,22 +1,29 @@
 # Exercise 39
 
-1. Download or copy the Lab VM
-2. Start it
-3. Login
-   - User: cyber
-   - Password: teeltech
-4. Open a terminal (Ctrl + t)
-5. Run the following command
+1. Install maltrail
+
+```bash
+docker run -d --name maltrail --net=host --privileged johackim/docker-maltrail
 ```
-docker start maltrail
-docker logs -f --tail 100 maltrail
+
+2. Set all interfaces into promisc mode
+
+```bash
+sudo ip link show | awk '/^[0-9]: / && !/lo:/ {print $2}' | tr -d ':' | xargs -r -I {} sudo ip link set dev {} promisc on
 ```
-6. Open the following url http://127.0.0.1:8338/
-7. Credentials:
+
+3. Open the following url http://127.0.0.1:8338/
+4. Credentials:
     - User: admin
     - Password: changeme!
-8. Ping some hosts or open some urls
-8. Play
+5. Issue the following commands
+
+```bash
+nslookup morphed.ru
+ping -c 1 136.161.101.53
+```
+
+6. Check Data
 
 ---
 
