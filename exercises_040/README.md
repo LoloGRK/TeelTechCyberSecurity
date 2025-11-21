@@ -1,18 +1,14 @@
 # Exercise 40
 
-1. Download or copy the Lab VM
-2. Start it
-3. Login
-   - User: cyber
-   - Password: teeltech
-4. Run the following command
+1. Install the following docker container. Replace eth0 by your interface
+
+```bash
+docker run -it -p 3000:3000 -v $(pwd)/ntopng.license:/etc/ntopng.license:ro --net=host ntop/ntopng:latest -i eth0
 ```
-docker start ntopng
-docker logs -f --tail 100 ntopng
-```
-5. Open the following url http://127.0.0.1:3000/
-7. Credentials:
+
+3. Open the following url http://127.0.0.1:3000/
+4. Credentials:
     - User: admin
     - Password: admin
-8. Update password
-9. Play
+5. Browse the internet
+6. Check the results
