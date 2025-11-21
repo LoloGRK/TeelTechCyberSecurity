@@ -3,8 +3,9 @@
 1. Open/Install burpsuite
 2. Open firefox
 3. Install burpSuite certificate into firefox following [this guide](https://portswigger.net/burp/documentation/desktop/external-browser-config/certificate/ca-cert-firefox)
-4. Disable Intercept
-5. Browse the internet and check data
+4. Configure firefox to use burpSuite following [this guide](https://portswigger.net/burp/documentation/desktop/external-browser-config/browser-config-firefox)
+5. Disable Intercept
+6. Browse the internet and check data
 
 ---
 
